@@ -1,7 +1,4 @@
 $(document).ready(function () {
-
-
-
     $('#btnLogin').click(function (e) { 
         e.preventDefault();   
         let datos = {
@@ -20,6 +17,4 @@ $(document).ready(function () {
             }
         });
     });
-
-
 });

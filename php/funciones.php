@@ -15,7 +15,6 @@ include 'conexion.php';
                 echo "0 results";
             }
             break; 
-
         }
     }
 
