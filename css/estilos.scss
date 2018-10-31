@@ -85,7 +85,7 @@ body{
         border-right: 1px solid black;
         .cajaUsuario{
             width: 100%;
-            height: 30%;
+            height: 40%;
             .datosUser{
                 width: 100%;
                 height: 30%;
@@ -100,7 +100,7 @@ body{
             }
             .rolesUsuario{
                 width: 100%;
-                height: 70%;
+                height: 60%;
                 display: flex;
                 justify-content: center;
                 align-items: flex-start;
@@ -131,23 +131,36 @@ body{
                 }
             }
         }
+        .linea{
+            height: 0.2%;
+            width: 90%;
+            background-color: black;
+            margin: auto;
+        }
         .menu{
             width: 100%;
-            height: 70%;
+            height: 59.5%;
             display: flex;
             justify-content: center;
             flex-direction: column;
             align-content: space-around;
+            align-items: center;
             .item{
+                cursor: pointer;
                 width: 100%;
                 height: 30%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 35px;
+                font-size: 40px;
+                margin: 20px 0;
+                p{
+                    margin: 0;
+                }
             }
             .item:hover{
-                background-color: gray;
+                background-color: #B5B5B5;
+                color: white;
             }
         }
     }

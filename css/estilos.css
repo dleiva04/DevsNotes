@@ -111,7 +111,7 @@ body {
     border-right: 1px solid black; }
     .cuerpo .side .cajaUsuario {
       width: 100%;
-      height: 30%; }
+      height: 40%; }
       .cuerpo .side .cajaUsuario .datosUser {
         width: 100%;
         height: 30%;
@@ -130,7 +130,7 @@ body {
           display: inline; }
       .cuerpo .side .cajaUsuario .rolesUsuario {
         width: 100%;
-        height: 70%;
+        height: 60%;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -170,9 +170,14 @@ body {
             border-radius: 50%;
             background-color: black;
             margin-right: 15px; }
+    .cuerpo .side .linea {
+      height: 0.2%;
+      width: 90%;
+      background-color: black;
+      margin: auto; }
     .cuerpo .side .menu {
       width: 100%;
-      height: 70%;
+      height: 59.5%;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -184,8 +189,12 @@ body {
       -ms-flex-direction: column;
       flex-direction: column;
       -ms-flex-line-pack: distribute;
-      align-content: space-around; }
+      align-content: space-around;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
       .cuerpo .side .menu .item {
+        cursor: pointer;
         width: 100%;
         height: 30%;
         display: -webkit-box;
@@ -197,9 +206,13 @@ body {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        font-size: 35px; }
+        font-size: 40px;
+        margin: 20px 0; }
+        .cuerpo .side .menu .item p {
+          margin: 0; }
       .cuerpo .side .menu .item:hover {
-        background-color: gray; }
+        background-color: #B5B5B5;
+        color: white; }
   .cuerpo .infoSide {
     width: 80%;
     height: 100%;

@@ -17,4 +17,17 @@ $(document).ready(function () {
     $(window).resize(function () { 
         $('#cuerpo').css('height', ($(window).height()*porcentajeCuerpo)+'px');
     });
+
+    $('.item').click(function (e) { 
+        e.preventDefault();
+        if($('.item').hasClass('activo')){
+            $('.item').removeClass('activo');
+        }
+        if($(this).hasClass('activo')){
+            $(this).removeClass('activo');
+        }else{
+            $(this).addClass('activo');
+        }
+        
+    });
 });
