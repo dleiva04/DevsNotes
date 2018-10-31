@@ -150,26 +150,60 @@ body{
                 width: 100%;
                 height: 30%;
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
                 font-size: 40px;
+                padding-right: 30%;
                 margin: 20px 0;
                 p{
                     margin: 0;
+                }
+                .cuadro{
+                    height: 100%;
+                    width: 3%;
+                    background-color: white;
                 }
             }
             .item:hover{
                 background-color: #B5B5B5;
                 color: white;
+                .cuadro{
+                    background-color: #B5B5B5;
+                }
+                
+            }
+            .activo{
+                border-top: 1px solid black;
+                border-bottom: 1px solid black;
+                .cuadro{
+                   display: inline;
+                   background-color: #206BFF;
+                }
             }
         }
     }
+//===============================================
+// Estilos para el info side, existen 3 div que se van alternando dependiendo de la seleccion en el menú
     .infoSide{
+        position: initial;
         width: 80%;
         height: 100%;
         border-left: 1px solid black;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .bienvenido{
+        //display: none;
+    }
+    .usuarios{
+        display: none;
+    }
+    .proyectos{
+        display: none;
+        .espacio{
+            height: 1800px;
+            width: 100px;
+        }
     }
 }

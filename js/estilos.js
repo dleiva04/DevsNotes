@@ -14,8 +14,10 @@ $(document).ready(function () {
     });
     let porcentajeCuerpo=0.85;
     $('#cuerpo').css('height', ($(window).height()*porcentajeCuerpo)+'px');
+    $('#cuerpo').css('margin-top', ($(window).height()*porcentajeNav)+'px');
     $(window).resize(function () { 
         $('#cuerpo').css('height', ($(window).height()*porcentajeCuerpo)+'px');
+        $('#cuerpo').css('margin-top', ($(window).height()*porcentajeNav)+'px');
     });
 
     $('.item').click(function (e) { 
@@ -27,7 +29,21 @@ $(document).ready(function () {
             $(this).removeClass('activo');
         }else{
             $(this).addClass('activo');
-        }
-        
+        }        
+    });
+
+    $('#btnUsuarios').click(function (e) { 
+        e.preventDefault();        
+        console.log("click");
+        $('#bienvenida').css('display', 'none');
+        $('#proyectos').css('display', 'none');
+        $('#usuarios').css('display', 'flex');
+    });
+    $('#btnProyectos').click(function (e) { 
+        e.preventDefault();        
+        console.log("click");
+        $('#bienvenida').css('display', 'none');
+        $('#usuarios').css('display', 'none');
+        $('#proyectos').css('display', 'flex');
     });
 });

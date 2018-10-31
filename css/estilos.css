@@ -200,20 +200,34 @@ body {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
         font-size: 40px;
+        padding-right: 30%;
         margin: 20px 0; }
         .cuerpo .side .menu .item p {
           margin: 0; }
+        .cuerpo .side .menu .item .cuadro {
+          height: 100%;
+          width: 3%;
+          background-color: white; }
       .cuerpo .side .menu .item:hover {
         background-color: #B5B5B5;
         color: white; }
+        .cuerpo .side .menu .item:hover .cuadro {
+          background-color: #B5B5B5; }
+      .cuerpo .side .menu .activo {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black; }
+        .cuerpo .side .menu .activo .cuadro {
+          display: inline;
+          background-color: #206BFF; }
   .cuerpo .infoSide {
+    position: initial;
     width: 80%;
     height: 100%;
     border-left: 1px solid black;
@@ -226,3 +240,10 @@ body {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
+  .cuerpo .usuarios {
+    display: none; }
+  .cuerpo .proyectos {
+    display: none; }
+    .cuerpo .proyectos .espacio {
+      height: 1800px;
+      width: 100px; }

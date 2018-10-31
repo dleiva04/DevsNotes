@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <nav class="navbar" id="nav">
+    <nav class="navbar fixed-top" id="nav">
         <img src="/img/devsnotesNav.svg" alt="">
         <button class="btn btn-outline-light">Cerrar Sesión</button>
     </nav>
@@ -39,21 +39,29 @@
             </div>
             <div class="linea"></div>
             <div class="menu">
-                <div class="item usuarios">
+                <div class="item usuarios" id="btnUsuarios">
+                    <div class="cuadro"></div>
                     <p>Usuarios</p>  
                 </div>
-                <div class="item proyectos">
+                <div class="item proyectos" id="btnProyectos">
+                    <div class="cuadro"></div>
                     <p>Proyectos</p>
                 </div>
             </div>
         </div>
 
-        <div class="infoSide">
+        <div class="infoSide bienvenido" id="bienvenida">
             <p class="display-2">¡Bienvenido!</p>
         </div>
-
+        <div class="infoSide usuarios" id="usuarios">
+            <p>Usuarios</p>
+        </div>
+        <div class="infoSide proyectos" id="proyectos">
+            <p>Proyectos</p>
+            <div class="espacio"></div>
+        </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="/js/estilos.js"></script>
