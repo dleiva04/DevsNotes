@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat',sans-serif; }
+
+.background {
+  background: #2000ff;
+  background: -webkit-linear-gradient(135deg, #2000ff 0%, #20d9ff 50%, #20d9ff 100%);
+  background: -o-linear-gradient(135deg, #2000ff 0%, #20d9ff 50%, #20d9ff 100%);
+  background: linear-gradient(315deg, #2000ff 0%, #20d9ff 50%, #20d9ff 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .background .iconoLogin {
+    height: 40%; }
+  .background .cuadroIzquierda {
+    width: 50%;
+    height: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-right: 2px solid white; }
+  .background .cuadroDerecha {
+    width: 50%;
+    height: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border-left: 2px solid white; }
+    .background .cuadroDerecha .login {
+      width: 80%; }
+      .background .cuadroDerecha .login .txt {
+        margin-top: 10px; }
+    .background .cuadroDerecha .btnLogin {
+      color: white;
+      border-radius: 10px;
+      margin-top: 10px; }
+    .background .cuadroDerecha .btnLogin:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      border-color: white; }
