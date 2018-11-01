@@ -33,15 +33,17 @@ body{
         flex-direction: column;
         border-left: 2px solid white;
         .login{
-            width: 80%;
+            width: 60%;
             .txt{
-                margin-top: 10px;
+                margin-top: 20px;
+                border-radius: 35px;
+                height: 40px;
             }
         }
         .btnLogin{
             color: white;
             border-radius: 10px;
-            margin-top: 10px;
+            margin-top: 20px;
             border-color: white;
         }
         .btnLogin:hover{
@@ -217,6 +219,9 @@ body{
             justify-content: space-evenly;
             align-items: center;
             flex-direction: row;
+            p{
+                font-size: 45px;
+            }
             .cuadroRegistro{
                 width: 45%;
                 height: 100%;
@@ -224,25 +229,28 @@ body{
                     height: 100%;
                     display: flex;
                     flex-direction: column;
-                    justify-content: center;
+                    justify-content:  flex-start;
                     align-items: center;   
+                    .txtR{                        
+                        width: 80%;
+                        margin: 10px 0;
+                        height: 50px;
+                        border-radius: 30px;
+                        padding-left: 15px;
+                        border: 1px solid black;
+                    }
                 }
-                .txtR{
-                    width: 80%;
-                    margin-top: 5%;
-                    border-radius: 25px;
-                }         
             }
             .cuadroRoles{
                 width: 45%;
-                height: 100%;  
+                height: 100%; 
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                flex-direction: column;
                 .ventanaRoles{
                     height: 100%;
                     width: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-content: center;
-                    flex-direction: column;
                     .cajaRoles{
                         height: 80%;
                         width: 80%;
@@ -250,16 +258,6 @@ body{
                         border: 2px solid black;
                         overflow: scroll;
                         overflow-x: hidden;
-                        .caja1{
-                            width: 100%;
-                            height: 800px;
-                            background-color: gray;
-                        }
-                        .caja2{
-                            width: 100%;
-                            height: 800px;
-                            background-color: red;
-                        }
                     }
                 }            
             }

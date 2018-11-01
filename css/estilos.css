@@ -54,13 +54,15 @@ body {
     flex-direction: column;
     border-left: 2px solid white; }
     .background .cuadroDerecha .login {
-      width: 80%; }
+      width: 60%; }
       .background .cuadroDerecha .login .txt {
-        margin-top: 10px; }
+        margin-top: 20px;
+        border-radius: 35px;
+        height: 40px; }
     .background .cuadroDerecha .btnLogin {
       color: white;
       border-radius: 10px;
-      margin-top: 10px;
+      margin-top: 20px;
       border-color: white; }
     .background .cuadroDerecha .btnLogin:hover {
       background-color: rgba(255, 255, 255, 0.4);
@@ -273,6 +275,8 @@ body {
       -webkit-box-direction: normal;
       -ms-flex-direction: row;
       flex-direction: row; }
+      .cuerpo .infoUsuarios .opcionesUsuarios p {
+        font-size: 45px; }
       .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro {
         width: 45%;
         height: 100%; }
@@ -285,34 +289,38 @@ body {
           -webkit-box-direction: normal;
           -ms-flex-direction: column;
           flex-direction: column;
-          -webkit-box-pack: center;
-          -ms-flex-pack: center;
-          justify-content: center;
+          -webkit-box-pack: start;
+          -ms-flex-pack: start;
+          justify-content: flex-start;
           -webkit-box-align: center;
           -ms-flex-align: center;
           align-items: center; }
-        .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro .txtR {
-          width: 80%;
-          margin-top: 5%;
-          border-radius: 25px; }
+          .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro .form .txtR {
+            width: 80%;
+            margin: 10px 0;
+            height: 50px;
+            border-radius: 30px;
+            padding-left: 15px;
+            border: 1px solid black; }
       .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles {
         width: 45%;
-        height: 100%; }
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column; }
         .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles {
           height: 100%;
-          width: 100%;
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-pack: center;
-          -ms-flex-pack: center;
-          justify-content: center;
-          -ms-flex-line-pack: center;
-          align-content: center;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-          flex-direction: column; }
+          width: 100%; }
           .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles {
             height: 80%;
             width: 80%;
@@ -320,14 +328,6 @@ body {
             border: 2px solid black;
             overflow: scroll;
             overflow-x: hidden; }
-            .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .caja1 {
-              width: 100%;
-              height: 800px;
-              background-color: gray; }
-            .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .caja2 {
-              width: 100%;
-              height: 800px;
-              background-color: red; }
   .cuerpo .proyectos {
     display: none; }
     .cuerpo .proyectos .espacio {
