@@ -10,12 +10,27 @@ include 'conexion.php';
             $result = $conn->query($sql);
             
             if ($result->num_rows == 1) {
-                echo "ingresado ";
+                /*
+                while($lector = $select->fetch_assoc()) {
+                    $jsonArray[] = $lector; 
+                }  
+                */
+                //================================
+                session_start();
+                $_SESSION['nombre']='';
+                $_SESSION['username']='';
+                $_SESSION['idUsuario']='';
+                $_SESSION['roles'] = array(1);
+                //================================
+                
+
             } else {
                 echo "0 results";
             }
             break; 
         }
     }
+
+
 
 ?>

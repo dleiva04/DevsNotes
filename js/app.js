@@ -1,3 +1,7 @@
+const datos = {
+    "nombre":1
+};
+
 $(document).ready(function () {
     $('#btnLogin').click(function (e) { 
         e.preventDefault();   
@@ -14,6 +18,7 @@ $(document).ready(function () {
                 console.log(response);
                 $('#username').val('');
                 $('#password').val('');
+
             }
         });
     });

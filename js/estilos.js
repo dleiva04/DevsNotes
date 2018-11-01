@@ -18,8 +18,7 @@ $(document).ready(function () {
     $(window).resize(function () { 
         $('#cuerpo').css('height', ($(window).height()*porcentajeCuerpo)+'px');
         $('#cuerpo').css('margin-top', ($(window).height()*porcentajeNav)+'px');
-    });
-
+    });    
     $('.item').click(function (e) { 
         e.preventDefault();
         if($('.item').hasClass('activo')){
@@ -31,7 +30,6 @@ $(document).ready(function () {
             $(this).addClass('activo');
         }        
     });
-
     $('#btnUsuarios').click(function (e) { 
         e.preventDefault();        
         console.log("click");
@@ -46,4 +44,5 @@ $(document).ready(function () {
         $('#usuarios').css('display', 'none');
         $('#proyectos').css('display', 'flex');
     });
+
 });
