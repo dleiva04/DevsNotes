@@ -44,5 +44,10 @@ $(document).ready(function () {
         $('#usuarios').css('display', 'none');
         $('#proyectos').css('display', 'flex');
     });
+    $('#btnLogout').click(function (e) {  
+        e.preventDefault();    
+        sessionStorage.clear();
+        window.location.assign('/DevsNotes/login.html');
+    });
 
 });

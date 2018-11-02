@@ -12,7 +12,7 @@
 <body>    
     <nav class="navbar fixed-top" id="nav">
         <img src="img/devsnotesNav.svg" alt="">
-        <button class="btn btn-outline-light">Cerrar Sesión</button>
+        <button class="btn btn-outline-light" id="btnLogout">Cerrar Sesión</button>
     </nav>
     <div class="container-fluid cuerpo" id="cuerpo">
         <div class="side">
@@ -21,16 +21,17 @@
                     <p id="nombreUsuario">Nombre</p>
                     <p id="userUsuario">{@username}</p>
                 </div>
-                <div class="rolesUsuario">
-                    <div class="rol">
+                <div class="rolesUsuario" id="rolesUsuario">
+                    <p>Roles</p>
+                    <div class="rol" id="adminP">
                         <div class="punto"></div>
                         <p>Administrador Proyectos</p>  
                     </div>
-                    <div class="rol">
+                    <div class="rol" id="admin">
                         <div class="punto"></div>
                         <p>Administrador</p>  
                     </div>
-                    <div class="rol">
+                    <div class="rol" id="dev">
                         <div class="punto"></div>
                         <p>Desarrollador</p>  
                     </div>
@@ -38,16 +39,16 @@
 
             </div>
             <div class="linea"></div>
-            <div class="menu">
-                <div class="item usuarios" id="btnUsuarios">
-                    <div class="cuadro"></div>
-                    <p>Usuarios</p>  
-                </div>
-                <div class="item proyectos" id="btnProyectos">
-                    <div class="cuadro"></div>
-                    <p>Proyectos</p>
-                </div>
-            </div>
+            <div class="menu" id="menu"> 
+                    <div class="item usuarios" id="btnUsuarios">
+                            <div class="cuadro"></div>
+                            <p>Usuarios</p>  
+                        </div>  
+                        <div class="item proyectos" id="btnProyectos">
+                                <div class="cuadro"></div>
+                                <p>Proyectos</p>
+                                </div>        
+                    </div>
         </div>
 
         <!--Divs de la pantalla de la derecha-->
