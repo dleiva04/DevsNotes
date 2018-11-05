@@ -32,7 +32,6 @@ $(document).ready(function () {
     });
     $('#btnUsuarios').click(function (e) { 
         e.preventDefault();        
-        console.log("click");
         $('#bienvenida').css('display', 'none');
         $('#proyectos').css('display', 'none');
         $('#usuarios').css('display', 'flex');

@@ -38,7 +38,7 @@
                 </div>
 
             </div>
-            <div class="linea"></div>
+            <!--<div class="linea"></div>-->
             <div class="menu" id="menu"> 
                     <div class="item usuarios" id="btnUsuarios">
                             <div class="cuadro"></div>
@@ -62,18 +62,40 @@
             <div class="opcionesUsuarios">
                 <div class="cuadroRegistro">
                     <div class="form">
-                        <p>Registro</p>
-                        <input type="text" class="txtR" placeholder="Nombre">
-                        <input type="text" class="txtR" placeholder="Usuario">
-                        <input type="text" class="txtR" placeholder="Contraseña">
-                        <input type="text" class="txtR" placeholder="Repetir Contraseña">
-                        <button>Registrar</button>
+                        <p class="users">Registro</p>
+                        <input type="text" class="txtR" id="nombre"  placeholder="Nombre">
+                        <input type="text" class="txtR" id="usuario" placeholder="Usuario">
+                        <input type="text" class="txtR" id="pass1"   placeholder="Contraseña">
+                        <input type="text" class="txtR" id="pass2"   placeholder="Repetir Contraseña">
+                        <button class="btn btn-primary" id="btnRegistrar">Registrar</button>
                     </div>
                 </div>
                 <div class="cuadroRoles">
                     <div class="ventanaRoles">
-                        <p>Roles</p>
-                        <div class="cajaRoles">
+                        <p class="users">Roles</p>
+                        <div class="cajaRoles"><!--
+                                <div class="cuadroRolUsuario">
+                                        <div class="cuadroUser">
+                                            <p class="titRoles">username</p>
+                                        </div>
+                                        <div class="cuadroRolesBtn">
+                                            <div class="cuadroRolesU">
+                                            <div class="rolU activo">
+                                                <div class="puntoU"></div>
+                                                <p>Administrador Proyectos</p>
+                                            </div>
+                                            <div class="rolU">
+                                                <div class="puntoU"></div>
+                                                    <p>Administrador</p>
+                                                </div>
+                                            <div class="rolU">
+                                                <div class="puntoU"></div>
+                                                    <p>Desarrollador</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    -->
                         </div>
                     </div>
                 </div>
@@ -90,7 +112,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="js/estilos.js"></script>
-    <script src="js/nuevo.js"></script>
+    <script src="js/usuarios.js"></script>
 
 </body>
 </html>

@@ -3,9 +3,42 @@ include 'conexion.php';
     if (isset($_POST['accion'])){
         switch($_POST['accion']){
             case 1:
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $sql = "call login2('$username','$password')";
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $sql = "call login2('$username','$password')";
+                $result = $conn->query($sql);            
+                if ($result->num_rows>0) {                
+                    while($lector = $result->fetch_assoc()) {
+                        $jsonArray[] = $lector; 
+                    }  
+                    echo json_encode($jsonArray);
+                } else {
+                    echo 0;
+                }
+            break; 
+            case 2:
+                $username = $_POST['username'];
+                $sql = "call comprobar_usuario('$username')";
+                $result = $conn->query($sql); 
+                if ($result->num_rows>0) { 
+                    echo 1;  
+                }else{
+                    echo 0;
+                }
+            break;
+            case 3: 
+                $nombre = $_POST['nombre'];
+                $usuario = $_POST['usuario'];
+                $pass = $_POST['pass1'];
+                $sql = "call registro_usuarios('$nombre','$usuario','$pass')";
+                if ($conn->query($sql) === TRUE) {
+                    echo 1;
+                }else{
+                    echo 0;
+                }                
+            break;
+            case 4: 
+            $sql = "call usuario_roles()";
             $result = $conn->query($sql);            
             if ($result->num_rows>0) {                
                 while($lector = $result->fetch_assoc()) {
@@ -15,7 +48,7 @@ include 'conexion.php';
             } else {
                 echo 0;
             }
-            break; 
+            break;
         }
     }
 

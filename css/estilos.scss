@@ -219,7 +219,7 @@ body{
             justify-content: space-evenly;
             align-items: center;
             flex-direction: row;
-            p{
+            .users{
                 font-size: 45px;
             }
             .cuadroRegistro{
@@ -253,11 +253,83 @@ body{
                     width: 100%;
                     .cajaRoles{
                         height: 80%;
-                        width: 80%;
+                        width: 90%;
                         border-radius: 15px;
                         border: 2px solid black;
                         overflow: scroll;
                         overflow-x: hidden;
+                        .cuadroRolUsuario{                     
+                            padding: 10px;
+                            border-bottom: 1px solid gray;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            flex-direction: row;
+                            .cuadroUser{
+                                p{
+                                    margin: 0;
+                                }
+                                .titRoles{
+                                    font-size: 25px;
+                                }
+                                width: 50%;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            .cuadroRolesU{
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: flex-start;
+                                flex-direction: column;
+                                .rolU{
+                                    p{
+                                        margin: 0;
+                                    }
+                                    cursor: pointer;
+                                    padding: 10px;
+                                    padding-right: 20px;
+                                    margin: 5px 0;
+                                    border: 2px solid gray;
+                                    border-radius: 35px;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    .puntoU{
+                                        height: 10px;
+                                        width: 10px;
+                                        border-radius: 50%;
+                                        background-color: gray;
+                                        margin-right: 15px;
+                                    }
+                                }
+                                .rolU::hover{
+                                    border: 2px solid rgba(0, 128, 0, 0.4);
+                                }
+                                .activo{
+                                    border: 2px solid green;
+                                    color: green;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    .puntoU{
+                                        background-color: green;
+                                    }
+                                }
+                                //orden de los cuadros (a la fuerza :3)
+                                #admin{
+                                    order: 2;
+                                }
+                                #adminP{
+                                    order: 1;
+                                }
+                                #dev{
+                                    order: 3;
+                                }
+                            }
+                        }
+                        
                     }
                 }            
             }
