@@ -108,6 +108,7 @@ $(document).ready(function () {
             });
         }
     });
+
     function limpiarFormRegistro() {  
         $('#nombre').val('');
         $('#usuario').val('');
@@ -118,6 +119,12 @@ $(document).ready(function () {
         $('#pass1').css('border','1px solid black');
         $('#pass2').css('border','1px solid black');
     }    
+    
+    $('#btnChat').click(function (e) { 
+        e.preventDefault();
+        console.log("click");
+    });
+
     //=======================================================
 
     
@@ -270,7 +277,7 @@ $(document).ready(function () {
                     if(r == 1){
                         actualizarTablaRoles()
                     }else{
-
+                        console.log("accion no realizada");
                     }
                 }
             });
@@ -289,7 +296,7 @@ $(document).ready(function () {
                     if(r == 1){
                         actualizarTablaRoles()
                     }else{
-
+                        console.log("accion no realizada");                      
                     }               
                 }
             });

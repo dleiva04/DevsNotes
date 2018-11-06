@@ -4,6 +4,7 @@ body{
     font-family: 'Montserrat',sans-serif;
 }
 $azul :rgb(19, 82, 155);
+$celeste :rgb(80, 162, 255);
 $azulHover :rgb(70, 132, 202);
 //===============================================
 //  Estilos login
@@ -188,7 +189,6 @@ $azulHover :rgb(70, 132, 202);
 //===============================================
 // Estilos para el info side, existen 3 div que se van alternando dependiendo de la seleccion en el menú
     .infoSide{
-        position: initial;
         width: 80%;
         height: 100%;
         border-left: 1px solid black;
@@ -359,9 +359,35 @@ $azulHover :rgb(70, 132, 202);
     }
     .proyectos{
         display: none;
-        .espacio{
-            height: 1800px;
-            width: 100px;
-        }
+
     }
+        .btnChat{
+            cursor: pointer;
+            right: 20px;
+            bottom: 20px;
+            position: fixed;
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            border: 2px solid $celeste;
+            background-color: $azul;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            img{
+                height: 55%;
+            }
+        }
+        .foro{
+            position: fixed;
+            height: 70vh;
+            width: 30%;
+            right: 35px;
+            bottom: 35px;
+            border-radius: 5%;
+            border: 2px solid $azul;
+            background-color: white;
+            z-index: 1;
+        }
 }

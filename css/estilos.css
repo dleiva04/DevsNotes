@@ -229,7 +229,6 @@ body {
           display: inline;
           background-color: #13529b; }
   .cuerpo .infoSide {
-    position: initial;
     width: 80%;
     height: 100%;
     border-left: 1px solid black;
@@ -445,6 +444,35 @@ body {
             width: 0; }
   .cuerpo .proyectos {
     display: none; }
-    .cuerpo .proyectos .espacio {
-      height: 1800px;
-      width: 100px; }
+  .cuerpo .btnChat {
+    cursor: pointer;
+    right: 20px;
+    bottom: 20px;
+    position: fixed;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid #50a2ff;
+    background-color: #13529b;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 2; }
+    .cuerpo .btnChat img {
+      height: 55%; }
+  .cuerpo .foro {
+    position: fixed;
+    height: 70vh;
+    width: 30%;
+    right: 35px;
+    bottom: 35px;
+    border-radius: 5%;
+    border: 2px solid #13529b;
+    background-color: white;
+    z-index: 1; }
