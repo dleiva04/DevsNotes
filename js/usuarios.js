@@ -120,6 +120,7 @@ $(document).ready(function () {
     }    
     //=======================================================
 
+    
 
     $('#btnUsuarios').click(function (e) { 
         e.preventDefault();
@@ -128,13 +129,18 @@ $(document).ready(function () {
             url: "php/funciones.php",
             data: {"accion":4},
             success: function (r) {
-                    let infoUsers = JSON.parse(r);      
-                    console.log(infoUsers);        
+                    let infoUsers = JSON.parse(r);           
+                    $('#cajaRoles').remove();  
+                    $('#windowRoles').append(`
+                    <div class="cajaRoles" id="cajaRoles">
+                    </div>
+                    `);                    
                     for(let i =0;i<infoUsers.length;i++){                      
                         $('.cajaRoles').append(`
                         <div class="cuadroRolUsuario">                        
                             <div class="cuadroUser">
                                 <p class="titRoles">${infoUsers[i].Nombre}</p>
+                                <p class="titRoles color">@${infoUsers[i].Nombre_Usuario}</p>
                             </div>
                             <div class="cuadroRolesBtn">
                                 <div class="cuadroRolesU" id="${infoUsers[i].Id_Usuario}">
@@ -146,40 +152,61 @@ $(document).ready(function () {
                                 switch(c[j]){
                                     case '1': 
                                     $(`#${infoUsers[i].Id_Usuario}`).append(`
-                                    <div class="rolU activo" id="admin">
+                                    <div class="rolU activo" id="admin" onclick="btnClick(this)">
                                         <div class="puntoU"></div>
                                         <p>Administrador</p>
                                     </div>`);
                                     break;
                                     case '2': 
                                     $(`#${infoUsers[i].Id_Usuario}`).append(`
-                                    <div class="rolU activo" id="adminP">
+                                    <div class="rolU activo" id="adminP" onclick="btnClick(this)">
                                         <div class="puntoU"></div>
                                         <p>Administrador Proyectos</p>
                                     </div>`);
                                     break;
                                     case '3':
                                     $(`#${infoUsers[i].Id_Usuario}`).append(`
-                                    <div class="rolU activo" id="dev">
+                                    <div class="rolU activo" id="dev" onclick="btnClick(this)">
                                         <div class="puntoU"></div>
                                         <p>Desarrollador</p>
                                     </div>`);
                                     break;
-                                }
-                            }    
+                                }                           
+                            } 
+                            if(!(c.includes('1'))){
+                                $(`#${infoUsers[i].Id_Usuario}`).append(`
+                                <div class="rolU" id="admin" onclick="btnClick(this)">
+                                    <div class="puntoU"></div>
+                                    <p>Administrador</p>
+                                </div>`);                                 
+                            }
+                            if(!(c.includes('2'))){
+                                $(`#${infoUsers[i].Id_Usuario}`).append(`
+                                <div class="rolU" id="adminP" onclick="btnClick(this)">
+                                    <div class="puntoU"></div>
+                                    <p>Administrador Proyectos</p>
+                                </div>`); 
+                            }
+                            if(!(c.includes('3'))){
+                                $(`#${infoUsers[i].Id_Usuario}`).append(`
+                                <div class="rolU" id="dev" onclick="btnClick(this)">
+                                    <div class="puntoU"></div>
+                                    <p>Desarrollador</p>
+                                </div>`);
+                            }   
                         }else{
                             $(`#${infoUsers[i].Id_Usuario}`).append(`
-                                    <div class="rolU" id="admin">
+                                    <div class="rolU" id="admin" onclick="btnClick(this)">
                                         <div class="puntoU"></div>
                                         <p>Administrador</p>
                                     </div>`);
                                     $(`#${infoUsers[i].Id_Usuario}`).append(`
-                                    <div class="rolU" id="adminP">
+                                    <div class="rolU" id="adminP" onclick="btnClick(this)">
                                         <div class="puntoU"></div>
                                         <p>Administrador Proyectos</p>
                                     </div>`);
                                     $(`#${infoUsers[i].Id_Usuario}`).append(`
-                                    <div class="rolU" id="dev">
+                                    <div class="rolU" id="dev" onclick="btnClick(this)">
                                         <div class="puntoU"></div>
                                         <p>Desarrollador</p>
                                     </div>`);
@@ -191,5 +218,60 @@ $(document).ready(function () {
             }
         });
     });
-
-});
+    /*
+    $('.rolU').hover(function () {
+            // over
+            if($('.rolU').hasClass('activo')){
+                /*border: 2px solid green;
+                                    color: black;
+                                    .puntoU{
+                                        background-color:green;
+                                    }
+                $('.rolU').css('border','2px solid red');
+                $('.puntoU').css('background-color','red');
+            }
+            
+        }, function () {
+            // out
+        }
+    );
+    */
+    
+   
+});    
+    
+    function btnClick(btn){
+        
+        let padreID = $(btn).parent().attr('id'); 
+        let idRolAccion;
+        if(btn.id=="admin"){
+            idRolAccion = 1;
+        }  else if(btn.id =="adminP"){
+            idRolAccion = 2;
+        }else{
+            idRolAccion = 3;
+        }
+        console.log(idRolAccion);
+        let datos = {
+            "accion": 5,
+            "idUser":padreID,
+        };
+        if(btn.className.includes("activo")){
+            $.ajax({
+                type: "post",
+                url: "php/funciones.php",
+                data: "",
+                success: function (r) {
+                    
+                }
+            });
+        }else{
+            $.ajax({
+                type: "post",
+                url: "php/funciones.php",
+                data: {"accion":6},
+                success: function (r) {                    
+                }
+            });
+        }
+    }

@@ -227,7 +227,7 @@ body {
         border-bottom: 1px solid black; }
         .cuerpo .side .menu .activo .cuadro {
           display: inline;
-          background-color: #206BFF; }
+          background-color: #13529b; }
   .cuerpo .infoSide {
     position: initial;
     width: 80%;
@@ -262,6 +262,7 @@ body {
     .cuerpo .infoUsuarios .opcionesUsuarios {
       width: 100%;
       height: 90%;
+      margin-top: 15px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -302,6 +303,11 @@ body {
             border-radius: 30px;
             padding-left: 15px;
             border: 1px solid black; }
+          .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro .form .btn {
+            border: 0;
+            background-color: #13529b; }
+          .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro .form .btn:hover {
+            background-color: #4684ca; }
       .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles {
         width: 45%;
         height: 100%;
@@ -344,7 +350,7 @@ body {
               -ms-flex-direction: row;
               flex-direction: row; }
               .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroUser {
-                width: 50%;
+                width: 30%;
                 height: 100%;
                 display: -webkit-box;
                 display: -ms-flexbox;
@@ -354,11 +360,19 @@ body {
                 justify-content: center;
                 -webkit-box-align: center;
                 -ms-flex-align: center;
-                align-items: center; }
+                align-items: center;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column; }
                 .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroUser p {
+                  text-align: center;
                   margin: 0; }
                 .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroUser .titRoles {
                   font-size: 25px; }
+                .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroUser .color {
+                  font-size: 20px;
+                  color: gray; }
               .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroRolesU {
                 display: -webkit-box;
                 display: -ms-flexbox;
@@ -376,7 +390,6 @@ body {
                 .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroRolesU .rolU {
                   cursor: pointer;
                   padding: 10px;
-                  padding-right: 20px;
                   margin: 5px 0;
                   border: 2px solid gray;
                   border-radius: 35px;
@@ -397,11 +410,14 @@ body {
                     border-radius: 50%;
                     background-color: gray;
                     margin-right: 15px; }
-                .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroRolesU .rolU::hover {
-                  border: 2px solid rgba(0, 128, 0, 0.4); }
-                .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroRolesU .activo {
+                .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroRolesU .rolU:hover {
                   border: 2px solid green;
-                  color: green;
+                  color: black; }
+                  .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroRolesU .rolU:hover .puntoU {
+                    background-color: green; }
+                .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroRolesU .activo {
+                  border: 2px solid #13529b;
+                  color: #414141;
                   display: -webkit-box;
                   display: -ms-flexbox;
                   display: flex;
@@ -412,7 +428,7 @@ body {
                   -ms-flex-align: center;
                   align-items: center; }
                   .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroRolesU .activo .puntoU {
-                    background-color: green; }
+                    background-color: #13529b; }
                 .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles .cuadroRolUsuario .cuadroRolesU #admin {
                   -webkit-box-ordinal-group: 3;
                   -ms-flex-order: 2;
@@ -425,6 +441,8 @@ body {
                   -webkit-box-ordinal-group: 4;
                   -ms-flex-order: 3;
                   order: 3; }
+          .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles::-webkit-scrollbar {
+            width: 0; }
   .cuerpo .proyectos {
     display: none; }
     .cuerpo .proyectos .espacio {
