@@ -38,16 +38,39 @@ include 'conexion.php';
                 }                
             break;
             case 4: 
-            $sql = "call usuario_roles()";
-            $result = $conn->query($sql);            
-            if ($result->num_rows>0) {                
-                while($lector = $result->fetch_assoc()) {
-                    $jsonArray[] = $lector; 
+                $sql = "call usuario_roles()";
+                $result = $conn->query($sql);            
+                if ($result->num_rows>0) {                
+                    while($lector = $result->fetch_assoc()) {
+                        $jsonArray[] = $lector; 
+                    }  
+                    echo json_encode($jsonArray);
+                } else {
+                    echo 0;
+                }
+            break;
+            case 5:
+                $idUser = $_POST['idUser'];
+                $idRolAccion = $_POST['idRolAccion'];
+                $idAccion = $_POST['idAccion'];
+                $sql = "call condicionUsuariosRoles('$idUser','$idRolAccion','$idAccion')";
+                if ($conn->query($sql) === TRUE) {
+                    echo 1;
+                }else{
+                    echo 0;
                 }  
-                echo json_encode($jsonArray);
-            } else {
-                echo 0;
-            }
+            break;
+            case 6:
+                $idUser = $_POST['idUser'];
+                $idRolAccion = $_POST['idRolAccion'];
+                $idAccion = $_POST['idAccion'];
+                $sql = "call condicionUsuariosRoles('$idUser','$idRolAccion','$idAccion')";
+                $result = $conn->query($sql);            
+                if ($conn->query($sql) === TRUE) {
+                    echo 1;
+                }else{
+                    echo 0;
+                }  
             break;
         }
     }

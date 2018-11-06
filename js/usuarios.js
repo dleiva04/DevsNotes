@@ -124,6 +124,30 @@ $(document).ready(function () {
 
     $('#btnUsuarios').click(function (e) { 
         e.preventDefault();
+        actualizarTablaRoles();
+    });
+    /*
+    $('.rolU').hover(function () {
+            // over
+            if($('.rolU').hasClass('activo')){
+                /*border: 2px solid green;
+                                    color: black;
+                                    .puntoU{
+                                        background-color:green;
+                                    }
+                $('.rolU').css('border','2px solid red');
+                $('.puntoU').css('background-color','red');
+            }
+            
+        }, function () {
+            // out
+        }
+    );
+    */
+    
+   
+});    
+    function actualizarTablaRoles(){
         $.ajax({
             type: "post",
             url: "php/funciones.php",
@@ -217,31 +241,9 @@ $(document).ready(function () {
                     }             
             }
         });
-    });
-    /*
-    $('.rolU').hover(function () {
-            // over
-            if($('.rolU').hasClass('activo')){
-                /*border: 2px solid green;
-                                    color: black;
-                                    .puntoU{
-                                        background-color:green;
-                                    }
-                $('.rolU').css('border','2px solid red');
-                $('.puntoU').css('background-color','red');
-            }
-            
-        }, function () {
-            // out
-        }
-    );
-    */
-    
-   
-});    
-    
-    function btnClick(btn){
-        
+    }
+
+    function btnClick(btn){        
         let padreID = $(btn).parent().attr('id'); 
         let idRolAccion;
         if(btn.id=="admin"){
@@ -252,25 +254,43 @@ $(document).ready(function () {
             idRolAccion = 3;
         }
         console.log(idRolAccion);
-        let datos = {
-            "accion": 5,
-            "idUser":padreID,
-        };
         if(btn.className.includes("activo")){
+            let datos = {
+                "accion": 5,
+                "idUser":parseInt(padreID),
+                "idRolAccion":idRolAccion,
+                "idAccion":1
+            };
+            console.log(datos);
             $.ajax({
                 type: "post",
                 url: "php/funciones.php",
-                data: "",
+                data: datos,
                 success: function (r) {
-                    
+                    if(r == 1){
+                        actualizarTablaRoles()
+                    }else{
+
+                    }
                 }
             });
         }else{
+            let datos = {
+                "accion": 5,
+                "idUser":parseInt(padreID),
+                "idRolAccion":idRolAccion,
+                "idAccion":0
+            };
             $.ajax({
                 type: "post",
                 url: "php/funciones.php",
-                data: {"accion":6},
-                success: function (r) {                    
+                data: datos,
+                success: function (r) {  
+                    if(r == 1){
+                        actualizarTablaRoles()
+                    }else{
+
+                    }               
                 }
             });
         }
