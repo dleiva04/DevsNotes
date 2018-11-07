@@ -378,7 +378,7 @@ $azulHover :rgb(70, 132, 202);
             img{
                 height: 55%;
             }
-        }
+        }        
         .foro{
             position: fixed;
             height: 70vh;
@@ -390,4 +390,8 @@ $azulHover :rgb(70, 132, 202);
             background-color: white;
             z-index: 1;
         }
+        .des{
+            display: none;
+        }
+        
 }

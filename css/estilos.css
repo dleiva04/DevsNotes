@@ -476,3 +476,5 @@ body {
     border: 2px solid #13529b;
     background-color: white;
     z-index: 1; }
+  .cuerpo .des {
+    display: none; }

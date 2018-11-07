@@ -125,10 +125,7 @@ $(document).ready(function () {
         console.log("click");
     });
 
-    //=======================================================
-
-    
-
+    //=======================================================  
     $('#btnUsuarios').click(function (e) { 
         e.preventDefault();
         actualizarTablaRoles();
@@ -151,8 +148,6 @@ $(document).ready(function () {
         }
     );
     */
-    
-   
 });    
     function actualizarTablaRoles(){
         $.ajax({
@@ -255,7 +250,7 @@ $(document).ready(function () {
         let idRolAccion;
         if(btn.id=="admin"){
             idRolAccion = 1;
-        }  else if(btn.id =="adminP"){
+        }else if(btn.id =="adminP"){
             idRolAccion = 2;
         }else{
             idRolAccion = 3;
@@ -301,4 +296,8 @@ $(document).ready(function () {
                 }
             });
         }
+        $('#btnChat').click(function (e) { 
+            e.preventDefault();
+           $('#btnChat').toggleClass('des');
+        });
     }
