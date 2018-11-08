@@ -72,6 +72,43 @@ include 'conexion.php';
                     echo 0;
                 }  
             break;
+            case 7: 
+                $idUser = $_POST['idUser'];
+                $sql = "call selectProyectos('$idUser')";
+                $result = $conn->query($sql);            
+                if ($result->num_rows>0) {                
+                    while($lector = $result->fetch_assoc()) {
+                        $jsonArray[] = $lector; 
+                    }  
+                    echo json_encode($jsonArray);
+                } else {
+                    echo 0;
+                }
+            break;
+            case 8:            
+                $idProyecto = $_POST['idProyecto'];
+                $idUser = $_POST['idUser'];
+                $desConsulta = $_POST['desConsulta'];
+                $sql = "call Insertar_Consulta('$desConsulta','$idUser','$idProyecto')";
+                if ($conn->query($sql) === TRUE) {
+                    echo 1;
+                }else{
+                    echo 0;
+                }  
+            break;
+            case 9:
+                $idProyecto = $_POST['idProyecto'];
+                $sql = "call Seleccion_Mensajes('$idProyecto')";
+                $result = $conn->query($sql);            
+                if ($result->num_rows>0) {                
+                    while($lector = $result->fetch_assoc()) {
+                        $jsonArray[] = $lector; 
+                    }  
+                    echo json_encode($jsonArray);
+                } else {
+                    echo 0;
+                }
+            break;
         }
     }
 

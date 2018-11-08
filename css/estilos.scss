@@ -208,6 +208,7 @@ $azulHover :rgb(70, 132, 202);
         border-bottom: 2px solid black;
         p{
             margin-left: 20px;
+            text-align: center;
         }
     }
     .infoUsuarios{
@@ -220,36 +221,8 @@ $azulHover :rgb(70, 132, 202);
             display: flex;
             justify-content: space-evenly;
             align-items: center;
-            flex-direction: row;
-            .users{
-                font-size: 45px;
-            }
-            .cuadroRegistro{
-                width: 45%;
-                height: 100%;
-                .form{
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content:  flex-start;
-                    align-items: center;
-                    .txtR{                        
-                        width: 80%;
-                        margin: 10px 0;
-                        height: 50px;
-                        border-radius: 30px;
-                        padding-left: 15px;
-                        border: 1px solid black;
-                    }
-                    .btn{
-                        border: 0;
-                        background-color: $azul;  
-                    }
-                    .btn:hover{
-                        background-color: $azulHover;  
-                    }
-                }
-            }
+            flex-direction: row;            
+           
             .cuadroRoles{
                 width: 45%;
                 height: 100%; 
@@ -357,17 +330,74 @@ $azulHover :rgb(70, 132, 202);
             }
         }
     }
-    .proyectos{
+    .proyectosInfo{
         display: none;
-
+        padding: 20px;
+        .opcionesProyectos{
+            height: 90%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            .containerForms{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                
+            }
+            .proyectosTareas{
+                width: 33%;
+                .cuadroRegistro{
+                    width: 100%;
+                    height: 100%; 
+                    .a{
+                        height: 50%;
+                    }                   
+                    .b{
+                        height: 50%;
+                    }                   
+                }
+            }
+            .crearProyectosTareas{
+                width: 33%;
+                .cuadroRegistro{
+                    width: 100%;
+                    height: 100%;
+                    .btn-info{
+                        margin: 15px;
+                    }                   
+                }
+            }
+            .verProyectosTareas{
+                width: 33%;
+                .cuadroRegistro{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            p{
+                margin: 0;
+            }
+            .recuadro{
+                height: 90%;
+                margin: 25px;
+                border: 1px solid black;
+                border-radius: 25px;
+                .form{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
     }
         .btnChat{
             cursor: pointer;
             right: 20px;
             bottom: 20px;
             position: fixed;
-            height: 70px;
-            width: 70px;
+            height: 65px;
+            width: 65px;
             border-radius: 50%;
             border: 2px solid $celeste;
             background-color: $azul;
@@ -384,14 +414,119 @@ $azulHover :rgb(70, 132, 202);
             height: 70vh;
             width: 30%;
             right: 35px;
-            bottom: 35px;
+            bottom: 55px;
             border-radius: 5%;
-            border: 2px solid $azul;
+            border: 4px solid $azul;
             background-color: white;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .chat{
+                width: 95%;
+                height: 90%;
+                padding: 10px;
+                border-top-left-radius: 5%;
+                border-top-right-radius: 5%;
+                //background-color: gray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                .menuItems{
+                    max-height: 150px;
+                    overflow: scroll;
+                    overflow-x: hidden; 
+                }
+                .itemChat{
+                    cursor: pointer;
+                }
+                .btn-info{
+                    height: 35px;
+                    background-color: $azulHover;
+                    border: 0;
+                }
+                .mensajes{
+                    padding: 5px;
+                    border-radius: 5%;
+                    margin-top: 15px;
+                    height: 100%;
+                    width: 100%;
+                    border: 1px solid $azul;
+                    overflow: scroll;
+                    overflow-x: hidden; 
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    .msjChat{
+                        width: 95%;
+                        border: 2px solid gray;
+                        border-radius: 5px;
+                        padding: 20px;
+                        margin: 15px;
+                        .emisor{
+                            border-bottom: 1px solid black;
+                            padding-bottom: 10px;
+                            p{
+                                margin: 0;
+                            }
+                        }
+                        .mensaje{
+                            padding-top: 10px;
+                        }
+                    }
+                }
+                .mensajes::-webkit-scrollbar{
+                    width: 0;
+                }
+            }
+            .texto{
+                margin-top: 5px;
+                margin-left: 2%;
+                width: 95%;
+                display: flex;
+                justify-content: center;
+                .msj{ 
+                    border-radius: 10px;
+                    border: 1px solid $celeste;
+                    margin-right: 4%;
+                    width: 70%;
+                    padding: 0 10px;
+                }
+            }
         }
         .des{
             display: none;
         }
-        
+        .users{
+            font-size: 45px;
+        }
+        .cuadroRegistro{
+            width: 45%;
+            height: 100%;
+            .form{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content:  flex-start;
+                align-items: center;
+                flex-direction: column;
+                .txtR{                        
+                    width: 80%;
+                    margin: 10px 0;
+                    height: 50px;
+                    border-radius: 30px;
+                    padding-left: 15px;
+                    border: 1px solid black;
+                }
+                .btn{
+                    border: 0;
+                    background-color: $azul;  
+                }
+                .btn:hover{
+                    background-color: $azulHover;  
+                }
+            }
+        }
 }

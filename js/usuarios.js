@@ -119,11 +119,6 @@ $(document).ready(function () {
         $('#pass1').css('border','1px solid black');
         $('#pass2').css('border','1px solid black');
     }    
-    
-    $('#btnChat').click(function (e) { 
-        e.preventDefault();
-        console.log("click");
-    });
 
     //=======================================================  
     $('#btnUsuarios').click(function (e) { 
@@ -148,6 +143,59 @@ $(document).ready(function () {
         }
     );
     */
+   $('#btnChat').click(function (e) { 
+    e.preventDefault();
+   $('.foro').toggleClass('des');
+    });
+
+    $('#cbxProyectos').click(function (e) { 
+        e.preventDefault();
+        console.log("click");
+        $.ajax({
+            type: "post",
+            url: "php/funciones.php",
+            data: {"accion":7,"idUser":sessionStorage.getItem('idUser')},
+            success: function (r) {    
+                if(r == 0){
+                    alert("No hay proyectos");
+                } else{
+                    let info = JSON.parse(r);
+                    $('#dropMenu').empty();     
+                    for (const i of info) {
+                        $('#dropMenu').append(`
+                            <div class="dropdown-item itemChat" onclick="seleccionProyecto(this)" id="${i.Id_Proyecto}">${i.Nombre_Proyecto}</div>
+                        `);
+                    }
+                }          
+            }
+        });
+        
+    });
+
+    $('#btnEnviarMsj').click(function (e) { 
+        e.preventDefault();
+
+        let datos = {
+            "accion":8,
+            "idProyecto":sessionStorage.getItem("idProyectoSeleccionado"),
+            "idUser":sessionStorage.getItem("idUser"),
+            "desConsulta":$('#msj').val()
+        };
+        $.ajax({
+            type: "post",
+            url: "php/funciones.php",
+            data: datos,
+            success: function (r) {
+                if(r == 1){
+                    alert("Insertado");
+                    $('#msj').val('');
+                }
+            }
+        });
+    });
+    
+    ///setInterval(function(){ alert("Hello"); }, 3000);
+
 });    
     function actualizarTablaRoles(){
         $.ajax({
@@ -156,11 +204,7 @@ $(document).ready(function () {
             data: {"accion":4},
             success: function (r) {
                     let infoUsers = JSON.parse(r);           
-                    $('#cajaRoles').remove();  
-                    $('#windowRoles').append(`
-                    <div class="cajaRoles" id="cajaRoles">
-                    </div>
-                    `);                    
+                    $('#cajaRoles').empty();                                 
                     for(let i =0;i<infoUsers.length;i++){                      
                         $('.cajaRoles').append(`
                         <div class="cuadroRolUsuario">                        
@@ -245,6 +289,24 @@ $(document).ready(function () {
         });
     }
 
+    function seleccionProyecto(btn){
+        if(btn.className.includes("itemChat")){
+            console.log("click en item");
+            $('#cbxProyectos').html($(btn).text());
+            sessionStorage.setItem('idProyectoSeleccionado',btn.id);
+            $.ajax({
+                type: "post",
+                url: "php/funciones.php",
+                data: {"accion":9,"idProyecto":sessionStorage.getItem('idProyectoSeleccionado')},
+                success: function (r) {
+                    console.log(r);
+                }
+            });
+        }
+        
+    }
+    
+
     function btnClick(btn){        
         let padreID = $(btn).parent().attr('id'); 
         let idRolAccion;
@@ -296,8 +358,5 @@ $(document).ready(function () {
                 }
             });
         }
-        $('#btnChat').click(function (e) { 
-            e.preventDefault();
-           $('#btnChat').toggleClass('des');
-        });
+        
     }

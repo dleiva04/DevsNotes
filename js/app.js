@@ -19,6 +19,7 @@ $(document).ready(function () {
                 sessionStorage.clear();
                 sessionStorage.setItem('nombre',datos[0].Nombre);
                 sessionStorage.setItem('user',datos[0].Nombre_Usuario);
+                sessionStorage.setItem('idUser',datos[0].Id_Usuario);
                 for(let i =0;i<datos.length;i++){
                     switch(datos[i].Desc_Rol){
                         case 'Desarrollador':

@@ -254,7 +254,8 @@ body {
     display: flex;
     border-bottom: 2px solid black; }
     .cuerpo .titulos p {
-      margin-left: 20px; }
+      margin-left: 20px;
+      text-align: center; }
   .cuerpo .infoUsuarios {
     display: none;
     padding: 20px; }
@@ -275,38 +276,6 @@ body {
       -webkit-box-direction: normal;
       -ms-flex-direction: row;
       flex-direction: row; }
-      .cuerpo .infoUsuarios .opcionesUsuarios .users {
-        font-size: 45px; }
-      .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro {
-        width: 45%;
-        height: 100%; }
-        .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro .form {
-          height: 100%;
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: vertical;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-          flex-direction: column;
-          -webkit-box-pack: start;
-          -ms-flex-pack: start;
-          justify-content: flex-start;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
-          align-items: center; }
-          .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro .form .txtR {
-            width: 80%;
-            margin: 10px 0;
-            height: 50px;
-            border-radius: 30px;
-            padding-left: 15px;
-            border: 1px solid black; }
-          .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro .form .btn {
-            border: 0;
-            background-color: #13529b; }
-          .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRegistro .form .btn:hover {
-            background-color: #4684ca; }
       .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles {
         width: 45%;
         height: 100%;
@@ -442,15 +411,75 @@ body {
                   order: 3; }
           .cuerpo .infoUsuarios .opcionesUsuarios .cuadroRoles .ventanaRoles .cajaRoles::-webkit-scrollbar {
             width: 0; }
-  .cuerpo .proyectos {
-    display: none; }
+  .cuerpo .proyectosInfo {
+    display: none;
+    padding: 20px; }
+    .cuerpo .proyectosInfo .opcionesProyectos {
+      height: 90%;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      padding: 20px; }
+      .cuerpo .proyectosInfo .opcionesProyectos .containerForms {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column; }
+      .cuerpo .proyectosInfo .opcionesProyectos .proyectosTareas {
+        width: 33%; }
+        .cuerpo .proyectosInfo .opcionesProyectos .proyectosTareas .cuadroRegistro {
+          width: 100%;
+          height: 100%; }
+          .cuerpo .proyectosInfo .opcionesProyectos .proyectosTareas .cuadroRegistro .a {
+            height: 50%; }
+          .cuerpo .proyectosInfo .opcionesProyectos .proyectosTareas .cuadroRegistro .b {
+            height: 50%; }
+      .cuerpo .proyectosInfo .opcionesProyectos .crearProyectosTareas {
+        width: 33%; }
+        .cuerpo .proyectosInfo .opcionesProyectos .crearProyectosTareas .cuadroRegistro {
+          width: 100%;
+          height: 100%; }
+          .cuerpo .proyectosInfo .opcionesProyectos .crearProyectosTareas .cuadroRegistro .btn-info {
+            margin: 15px; }
+      .cuerpo .proyectosInfo .opcionesProyectos .verProyectosTareas {
+        width: 33%; }
+        .cuerpo .proyectosInfo .opcionesProyectos .verProyectosTareas .cuadroRegistro {
+          width: 100%;
+          height: 100%; }
+      .cuerpo .proyectosInfo .opcionesProyectos p {
+        margin: 0; }
+      .cuerpo .proyectosInfo .opcionesProyectos .recuadro {
+        height: 90%;
+        margin: 25px;
+        border: 1px solid black;
+        border-radius: 25px; }
+        .cuerpo .proyectosInfo .opcionesProyectos .recuadro .form {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center; }
   .cuerpo .btnChat {
     cursor: pointer;
     right: 20px;
     bottom: 20px;
     position: fixed;
-    height: 70px;
-    width: 70px;
+    height: 65px;
+    width: 65px;
     border-radius: 50%;
     border: 2px solid #50a2ff;
     background-color: #13529b;
@@ -471,10 +500,135 @@ body {
     height: 70vh;
     width: 30%;
     right: 35px;
-    bottom: 35px;
+    bottom: 55px;
     border-radius: 5%;
-    border: 2px solid #13529b;
+    border: 4px solid #13529b;
     background-color: white;
-    z-index: 1; }
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .cuerpo .foro .chat {
+      width: 95%;
+      height: 90%;
+      padding: 10px;
+      border-top-left-radius: 5%;
+      border-top-right-radius: 5%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+      .cuerpo .foro .chat .menuItems {
+        max-height: 150px;
+        overflow: scroll;
+        overflow-x: hidden; }
+      .cuerpo .foro .chat .itemChat {
+        cursor: pointer; }
+      .cuerpo .foro .chat .btn-info {
+        height: 35px;
+        background-color: #4684ca;
+        border: 0; }
+      .cuerpo .foro .chat .mensajes {
+        padding: 5px;
+        border-radius: 5%;
+        margin-top: 15px;
+        height: 100%;
+        width: 100%;
+        border: 1px solid #13529b;
+        overflow: scroll;
+        overflow-x: hidden;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column; }
+        .cuerpo .foro .chat .mensajes .msjChat {
+          width: 95%;
+          border: 2px solid gray;
+          border-radius: 5px;
+          padding: 20px;
+          margin: 15px; }
+          .cuerpo .foro .chat .mensajes .msjChat .emisor {
+            border-bottom: 1px solid black;
+            padding-bottom: 10px; }
+            .cuerpo .foro .chat .mensajes .msjChat .emisor p {
+              margin: 0; }
+          .cuerpo .foro .chat .mensajes .msjChat .mensaje {
+            padding-top: 10px; }
+      .cuerpo .foro .chat .mensajes::-webkit-scrollbar {
+        width: 0; }
+    .cuerpo .foro .texto {
+      margin-top: 5px;
+      margin-left: 2%;
+      width: 95%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+      .cuerpo .foro .texto .msj {
+        border-radius: 10px;
+        border: 1px solid #50a2ff;
+        margin-right: 4%;
+        width: 70%;
+        padding: 0 10px; }
   .cuerpo .des {
     display: none; }
+  .cuerpo .users {
+    font-size: 45px; }
+  .cuerpo .cuadroRegistro {
+    width: 45%;
+    height: 100%; }
+    .cuerpo .cuadroRegistro .form {
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      justify-content: flex-start;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      flex-direction: column; }
+      .cuerpo .cuadroRegistro .form .txtR {
+        width: 80%;
+        margin: 10px 0;
+        height: 50px;
+        border-radius: 30px;
+        padding-left: 15px;
+        border: 1px solid black; }
+      .cuerpo .cuadroRegistro .form .btn {
+        border: 0;
+        background-color: #13529b; }
+      .cuerpo .cuadroRegistro .form .btn:hover {
+        background-color: #4684ca; }
