@@ -106,7 +106,17 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 0; }
+  padding: 0;
+  /*.bienvenido{
+        //display: none;
+    }*/ }
+  .cuerpo .btn-danger {
+    margin-top: 10px;
+    background: white;
+    color: red; }
+  .cuerpo .btn-danger:hover {
+    background: red;
+    color: white; }
   .cuerpo .side {
     width: 20%;
     height: 100%;

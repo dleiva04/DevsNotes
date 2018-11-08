@@ -168,8 +168,7 @@ $(document).ready(function () {
                     }
                 }          
             }
-        });
-        
+        });        
     });
 
     $('#btnEnviarMsj').click(function (e) { 
@@ -211,6 +210,7 @@ $(document).ready(function () {
                             <div class="cuadroUser">
                                 <p class="titRoles">${infoUsers[i].Nombre}</p>
                                 <p class="titRoles color">@${infoUsers[i].Nombre_Usuario}</p>
+                                <button class="btn btn-danger" onclick="eliminar(${infoUsers[i].Id_Usuario})" >Eliminar</button>
                             </div>
                             <div class="cuadroRolesBtn">
                                 <div class="cuadroRolesU" id="${infoUsers[i].Id_Usuario}">
@@ -306,6 +306,17 @@ $(document).ready(function () {
         
     }
     
+    function eliminar(btn){
+        $.ajax({
+            type: "post",
+            url: "php/funciones.php",
+            data: {"accion":10,"idUser":btn},
+            success: function (r) {
+                console.log(r);
+                actualizarTablaRoles();
+            }
+        });
+    }
 
     function btnClick(btn){        
         let padreID = $(btn).parent().attr('id'); 

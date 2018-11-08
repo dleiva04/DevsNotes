@@ -109,6 +109,17 @@ include 'conexion.php';
                     echo 0;
                 }
             break;
+            case 10:
+                $idUser = $_POST['idUser'];
+                $sql = "call Eliminar_Usuario('$idUser')";
+                if ($conn->query($sql) === TRUE) {
+                    echo 1;
+                }else{
+                    echo 0;
+                } 
+            break;
+            case 11: 
+            break;
         }
     }
 
