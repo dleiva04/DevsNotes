@@ -170,6 +170,61 @@ $(document).ready(function () {
             }
         });        
     });
+    let click = false;
+    $('#cbxUserTarea').click(function (e) { 
+        e.preventDefault();
+        console.log("click");
+        if(!click){                 
+            $.ajax({
+                type: "post",
+                url: "php/funciones.php",
+                data: {"accion":12},
+                success: function (r) {    
+                    if(r == 0){
+                        alert("No hay usuarios");
+                    } else{
+                        let info = JSON.parse(r);
+                        $('#dropMenuUsuario').empty();     
+                        for (const i of info) {
+                            $('#dropMenuUsuario').append(`
+                                <div class="dropdown-item itemChat" onclick="seleccionUsuarioTarea(this)" id="${i.Id_Usuario}">${i.Nombre} > @${i.Nombre_Usuario}</div>
+                            `);
+                        }
+                    }          
+                }            
+            });
+            click = true;    
+        }else{
+            click = false;     
+        }
+    });
+    let click1 = false;
+    $('#cbxProyectoTarea').click(function (e) { 
+        e.preventDefault();
+        console.log("click");
+        if(!click1){   
+            $.ajax({
+                type: "post",
+                url: "php/funciones.php",
+                data: {"accion":13},
+                success: function (r) {    
+                    if(r == 0){
+                        alert("No hay proyectos");
+                    } else{
+                        let info = JSON.parse(r);
+                        $('#dropMenuProyecto').empty();     
+                        for (const i of info) {
+                            $('#dropMenuProyecto').append(`
+                                <div class="dropdown-item itemChat" onclick="seleccionProyectoTarea(this)" id="${i.Id_Proyecto}">${i.Nombre_Proyecto}</div>
+                            `);
+                        }
+                    }          
+                }
+            });      
+        }else{
+            click1 = true;
+        }  
+    });
 
     $('#btnEnviarMsj').click(function (e) { 
         e.preventDefault();
@@ -192,10 +247,34 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#btnCrearProyecto').click(function (e) { 
+        let datos = {
+            "accion":11,
+            "nombreProyecto":$('#nombreProyecto').val(),
+            "idCreador":sessionStorage.getItem('idUser')
+        };
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "php/funciones.php",
+            data: datos,
+            success: function (r) {
+                console.log(r);
+                $('#nombreProyecto').val('');
+            }
+        });
+    });
     
     ///setInterval(function(){ alert("Hello"); }, 3000);
 
 });    
+    function seleccionUsuarioTarea(){
+
+    }
+    function seleccionUsuarioTarea(){
+        
+    }
     function actualizarTablaRoles(){
         $.ajax({
             type: "post",
@@ -302,8 +381,7 @@ $(document).ready(function () {
                     console.log(r);
                 }
             });
-        }
-        
+        }        
     }
     
     function eliminar(btn){

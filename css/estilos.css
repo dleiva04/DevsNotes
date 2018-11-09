@@ -551,8 +551,6 @@ body {
         max-height: 150px;
         overflow: scroll;
         overflow-x: hidden; }
-      .cuerpo .foro .chat .itemChat {
-        cursor: pointer; }
       .cuerpo .foro .chat .btn-info {
         height: 35px;
         background-color: #4684ca;
@@ -642,3 +640,5 @@ body {
         background-color: #13529b; }
       .cuerpo .cuadroRegistro .form .btn:hover {
         background-color: #4684ca; }
+  .cuerpo .itemChat {
+    cursor: pointer; }

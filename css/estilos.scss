@@ -449,9 +449,7 @@ $azulHover :rgb(70, 132, 202);
                     overflow: scroll;
                     overflow-x: hidden; 
                 }
-                .itemChat{
-                    cursor: pointer;
-                }
+                
                 .btn-info{
                     height: 35px;
                     background-color: $azulHover;
@@ -539,6 +537,9 @@ $azulHover :rgb(70, 132, 202);
                 }
             }
             
+        }
+        .itemChat{
+            cursor: pointer;
         }
         
 }

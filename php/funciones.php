@@ -118,7 +118,39 @@ include 'conexion.php';
                     echo 0;
                 } 
             break;
-            case 11: 
+            case 11:             
+                $idNombreProyecto = $_POST['nombreProyecto'];
+                $idUser = $_POST['idCreador'];
+                $sql = "call Crear_Proyecto('$idNombreProyecto','$idUser')";
+                if ($conn->query($sql) === TRUE) {
+                    echo 1;
+                }else{
+                    echo 0;
+                } 
+            break;
+            case 12:             
+                $sql = "call Nombre_Id()";
+                $result = $conn->query($sql);            
+                if ($result->num_rows>0) {                
+                    while($lector = $result->fetch_assoc()) {
+                        $jsonArray[] = $lector; 
+                    }  
+                    echo json_encode($jsonArray);
+                } else {
+                    echo 0;
+                }
+            break;
+            case 13:             
+                $sql = "call Select_Proyecto2()";
+                $result = $conn->query($sql);            
+                if ($result->num_rows>0) {                
+                    while($lector = $result->fetch_assoc()) {
+                        $jsonArray[] = $lector; 
+                    }  
+                    echo json_encode($jsonArray);
+                } else {
+                    echo 0;
+                }
             break;
         }
     }

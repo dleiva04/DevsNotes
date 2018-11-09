@@ -33,7 +33,7 @@ $(document).ready(function () {
                         break;
                     }
                 }
-                window.location.assign('/DevsNotes/index.html');
+                window.location.assign('/DevsNotes/landing.html');
             }
         });
     });       
