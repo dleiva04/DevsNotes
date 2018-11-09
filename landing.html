@@ -53,6 +53,8 @@
                 </div>
         </div>
 
+        
+
         <!--Divs de la pantalla de la derecha-->
         <div class="infoSide bienvenido" id="bienvenida">
             <p class="display-2">¡Bienvenido!</p>
@@ -60,6 +62,12 @@
         <div class="infoSide infoUsuarios" id="usuarios">
             <div class="titulos">
                 <p>Usuarios</p>
+                <div style ="font-size: 18px" class="alert alert-success" role="alert">
+                This is a success alert—check it out!                  
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             </div>
             <div class="opcionesUsuarios">
                     <div class="cuadroRegistro">
@@ -100,7 +108,7 @@
                     <div class="cuadroRegistro">
                         <div class="form">
                             <p class="users">Crear Tarea</p>
-                            <input type="text" class="txtR" id="nombre"  placeholder="Nombre Tarea">
+                            <input type="text" class="txtR" id="nombreTarea"  placeholder="Nombre Tarea">
                             <div class="btn-group" >
                                     <button type="button" class="btn btn-info dropdown-toggle"  id="cbxProyectoTarea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Proyecto
@@ -115,7 +123,7 @@
                                     <div class="dropdown-menu menuItems" id="dropMenuUsuario">                            
                                     </div>
                             </div>
-                            <button class="btn btn-primary" id="btnRegistrar">Crear Tarea</button>
+                            <button class="btn btn-primary" id="btnCrearTarea">Crear Tarea</button>
                         </div>
                 </div>
                 </div>
@@ -130,6 +138,13 @@
             <div class="foro des" id="foro">
                 <div class="chat">
                     <!-- Example single danger button -->
+                    <div class="btn-group" id="grupoBtn">
+                        <button type="button" class="btn btn-info dropdown-toggle"  id="cbxProyectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Observacion de Tareas
+                        </button>
+                        <div class="dropdown-menu menuItems" id="dropMenu">                            
+                        </div>
+                    </div>
                     <div class="btn-group" id="grupoBtn">
                         <button type="button" class="btn btn-info dropdown-toggle"  id="cbxProyectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Proyectos
@@ -147,6 +162,31 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Modal 
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Observaciones
+        </button>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Insertar observaciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Observaciones"></textarea>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Finalizar</button>
+                <button type="button" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </div>
+            </div>
+        </div>-->
         
         <!--=====================================-->
         

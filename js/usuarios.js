@@ -187,7 +187,7 @@ $(document).ready(function () {
                         $('#dropMenuUsuario').empty();     
                         for (const i of info) {
                             $('#dropMenuUsuario').append(`
-                                <div class="dropdown-item itemChat" onclick="seleccionUsuarioTarea(this)" id="${i.Id_Usuario}">${i.Nombre} > @${i.Nombre_Usuario}</div>
+                                <div class="dropdown-item itemChat" onclick="seleccionUsuarioTarea(this)" id="${i.Id_Usuario}">@${i.Nombre_Usuario}</div>
                             `);
                         }
                     }          
@@ -265,16 +265,38 @@ $(document).ready(function () {
             }
         });
     });
-    
-    ///setInterval(function(){ alert("Hello"); }, 3000);
+    $('#btnCrearTarea').click(function (e) { 
+        e.preventDefault();
+        let datos = {
+            "accion":14,
+            "nombre": $('#nombreTarea').val(),
+            "proyecto": sessionStorage.getItem('ProyectoTarea'),
+            "idUsuario": sessionStorage.getItem('UsuarioTarea')
+        };
+        $.ajax({
+            type: "post",
+            url: "php/funciones.php",
+            data: datos,
+            success: function (r) {
+                console.log(r);
+                $('#nombreTarea').val('');
+                $('#cbxUserTarea').html('Usuario Encargado');
+                $('#cbxProyectoTarea').html('Proyecto');
+            }
+        });
+    });
 
 });    
-    function seleccionUsuarioTarea(){
+    function seleccionUsuarioTarea(btn){
+        $('#cbxUserTarea').html($(btn).text());
+        sessionStorage.setItem('UsuarioTarea',$(btn).attr('id'));
+    }
+    function seleccionProyectoTarea(btn){
+        $('#cbxProyectoTarea').html($(btn).text());
+        console.log(btn);
+        sessionStorage.setItem('ProyectoTarea',$(btn).attr('id'));
+    }
 
-    }
-    function seleccionUsuarioTarea(){
-        
-    }
     function actualizarTablaRoles(){
         $.ajax({
             type: "post",

@@ -11,6 +11,7 @@ include 'conexion.php';
                     while($lector = $result->fetch_assoc()) {
                         $jsonArray[] = $lector; 
                     }  
+                    session_start();
                     echo json_encode($jsonArray);
                 } else {
                     echo 0;
@@ -151,6 +152,17 @@ include 'conexion.php';
                 } else {
                     echo 0;
                 }
+            break;
+            case 14:
+                $nombre = $_POST['nombre'];
+                $proyecto = $_POST['proyecto'];
+                $idUsuario = $_POST['idUsuario'];
+                $sql = "call Insertar_Tarea('$proyecto','$idUsuario','$nombre')";
+                if ($conn->query($sql) === TRUE) {
+                    echo 1;
+                }else{
+                    echo 0;
+                } 
             break;
         }
     }
