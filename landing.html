@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DevsNotes</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>    
+    <nav class="navbar fixed-top" id="nav">
+        <img src="img/devsnotesNav.svg" alt="">
+        <button class="btn btn-outline-light" id="btnLogout">Cerrar Sesión</button>
+    </nav>
+    <div class="container-fluid cuerpo" id="cuerpo">
+        <div class="side">
+            <div class="cajaUsuario">
+                <div class="datosUser">
+                    <p id="nombreUsuario">Nombre</p>
+                    <p id="userUsuario">{@username}</p>
+                </div>
+                <div class="rolesUsuario" id="rolesUsuario">
+                    <p>Roles</p>
+                    <div class="rol" id="adminP">
+                        <div class="punto"></div>
+                        <p>Administrador Proyectos</p>  
+                    </div>
+                    <div class="rol" id="admin">
+                        <div class="punto"></div>
+                        <p>Administrador</p>  
+                    </div>
+                    <div class="rol" id="dev">
+                        <div class="punto"></div>
+                        <p>Desarrollador</p>  
+                    </div>
+                </div>
+
+            </div>
+            <!--<div class="linea"></div>-->
+            <div class="menu" id="menu"> 
+                <div class="item usuarios" id="btnUsuarios">
+                    <div class="cuadro"></div><!--diseño, no quitar-->
+                        <p>Usuarios</p>  
+                
+                </div>  
+                <div class="item proyectos" id="btnProyectos">
+                    <div class="cuadro"></div><!--diseño, no quitar-->
+                        <p>Proyectos</p>                   
+                </div>      
+                </div>
+        </div>
+
+        <!--Divs de la pantalla de la derecha-->
+        <div class="infoSide bienvenido" id="bienvenida">
+            <p class="display-2">¡Bienvenido!</p>
+        </div>
+        <div class="infoSide infoUsuarios" id="usuarios">
+            <div class="titulos">
+                <p>Usuarios</p>
+            </div>
+            <div class="opcionesUsuarios">
+                    <div class="cuadroRegistro">
+                        <div class="form">
+                            <p class="users">Registro</p>
+                            <input type="text" class="txtR" id="nombre"  placeholder="Nombre">
+                            <input type="text" class="txtR" id="usuario" placeholder="Usuario">
+                            <input type="text" class="txtR" id="pass1"   placeholder="Contraseña">
+                            <input type="text" class="txtR" id="pass2"   placeholder="Repetir Contraseña">
+                            <button class="btn btn-primary" id="btnRegistrar">Registrar</button>
+                        </div>
+                    </div>
+
+                <div class="cuadroRoles">
+                    <div class="ventanaRoles" id="windowRoles">
+                        <p class="users">Roles</p>
+                        <div class="cajaRoles" id="cajaRoles">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="infoSide proyectosInfo" id="proyectos">
+            <div class="titulos">
+                <p>Proyectos</p>
+            </div>
+            <div class="opcionesProyectos"> 
+                <div class="proyectosTareas recuadro" >
+                    <div class="cuadroRegistro">
+                        <div class="form">
+                            <p class="users">Crear Proyecto</p>
+                            <input type="text" class="txtR" id="nombre"  placeholder="Nombre Proyecto">
+                            <button class="btn btn-primary" id="btnRegistrar">Crear Proyecto</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="crearProyectosTareas recuadro">
+                    <div class="cuadroRegistro">
+                        <div class="form">
+                            <p class="users">Crear Tarea</p>
+                            <input type="text" class="txtR" id="nombre"  placeholder="Nombre Tarea">
+                            <div class="btn-group" >
+                                    <button type="button" class="btn btn-info dropdown-toggle"  id="cbxProyectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Proyectos
+                                    </button>
+                                    <div class="dropdown-menu menuItems" id="dropMenuP">                            
+                                    </div>
+                            </div>
+                            <div class="btn-group">
+                                    <button type="button" class="btn btn-info dropdown-toggle"  id="cbxProyectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Proyectos
+                                    </button>
+                                    <div class="dropdown-menu menuItems" id="dropMenu">                            
+                                    </div>
+                            </div>
+                            <button class="btn btn-primary" id="btnRegistrar">Crear Tarea</button>
+                        </div>
+                </div>
+                </div>
+                <div class="verProyectosTareas recuadro">
+                    
+                </div>
+            </div>
+            
+        <div class="btnChat" id="btnChat">
+            <img src="img/chat.svg" alt="">
+        </div>
+            <div class="foro des" id="foro">
+                <div class="chat">
+                    <!-- Example single danger button -->
+                    <div class="btn-group" id="grupoBtn">
+                        <button type="button" class="btn btn-info dropdown-toggle"  id="cbxProyectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Proyectos
+                        </button>
+                        <div class="dropdown-menu menuItems" id="dropMenu">                            
+                        </div>
+                    </div>
+                    <div class="mensajes" id="mensajes">                    
+                        No hay mensajes
+                    </div>
+                </div>
+                <div class="texto">
+                    <input type="text" class="msj" id="msj">
+                    <button class="btn btn-primary" id="btnEnviarMsj">Enviar</button>
+                </div>
+            </div>
+        </div>
+        
+        <!--=====================================-->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script> <!--Scrollbars-->
+        <script src="js/estilos.js"></script>
+    <script src="js/usuarios.js"></script>
+
+</body>
+</html>
