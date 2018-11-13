@@ -9,10 +9,12 @@ $(document).ready(function () {
     
     if(rol1 == null){
         $('#btnUsuarios').remove();
-        $('#admin').remove();
+        $('#admin').remove();        
     }
     if(rol2 == null){
         $('#adminP').remove();
+        $('#crearProyecto').remove();
+        $('#crearTarea').remove();
     }
     if(rol3 == null){
         $('#dev').remove();
@@ -99,14 +101,46 @@ $(document).ready(function () {
                 data: datos,
                 success: function (r) {
                     if(r == 1){
-                        alert('ingresado');  
-                        limpiarFormRegistro();                      
+                        limpiarFormRegistro();  
+                        $('#titulosNotificacion1').append(`
+                        <div style ="font-size: 18px" class="alert alert-success notificacion" role="alert">
+                            INGRESADO             
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        `);        
+                        actualizarTablaRoles();
                     }else{
-                        alert('no ingresado');
+                        $('#titulosNotificacion1').append(`
+                        <div style ="font-size: 18px" class="alert alert-danger notificacion" role="alert">
+                            ERROR AL REGISTRAR             
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        `); 
                     }
                 }
             });
         }
+    });
+
+    $('#btnProyectos').click(function (e) { 
+        e.preventDefault();
+        let datos = {
+            "accion":16,
+            "idUser":sessionStorage.getItem('idUser')
+        };
+        $.ajax({
+            type: "post",
+            url: "php/funciones.php",
+            data: datos,
+            success: function (r) {
+                let arr = JSON.parse(r);
+                cargarTareas(arr);
+            }
+        });
     });
 
     function limpiarFormRegistro() {  
@@ -260,8 +294,26 @@ $(document).ready(function () {
             url: "php/funciones.php",
             data: datos,
             success: function (r) {
-                console.log(r);
-                $('#nombreProyecto').val('');
+                if(r==1){                   
+                    $('#nombreProyecto').val('');
+                    $('#titulosNotificacion2').append(`
+                    <div style ="font-size: 18px" class="alert alert-success notificacion" role="alert">
+                        INGRESADO             
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    `);
+                }else{
+                    $('#titulosNotificacion2').append(`
+                    <div style ="font-size: 18px" class="alert alert-danger notificacion" role="alert">
+                        ERROR AL REGISTRAR              
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    `);
+                }
             }
         });
     });
@@ -287,6 +339,48 @@ $(document).ready(function () {
     });
 
 });    
+    function cargarTareas(arr){
+        for (const i of arr) {
+            $('#cuadroTareas').append(`
+            <div class="tarea">
+            <div class="tit">
+                <p id="id">Nombre Tarea</p>
+                <p id="id">Nombre Proyecto</p>
+            </div>
+            <div class="cuerpoTarea">
+                <button class="btn btn-primary btnDrop" data-toggle="modal" data-target="#obs">Observacion</button>
+                <div class="btn-group" id="grupoBtn">
+                        <button type="button" class="btn btn-primary dropdown-toggle btnDrop"  id="cbxEstadosTarea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Estado Tarea
+                        </button>
+                        <div class="dropdown-menu menuItems" id="dropMenuEstados"> 
+                            <div class="dropdown-item itemChat" onclick="seleccionEstado(this)" id="1">Activo</div>                       
+                            <div class="dropdown-item itemChat" onclick="seleccionEstado(this)" id="2">Pausado</div>                       
+                            <div class="dropdown-item itemChat" onclick="seleccionEstado(this)" id="3">Finalizado</div>                       
+                        </div>
+                </div>
+                <button class="btn btn-primary btnDrop">Finalizar Tarea</button>
+            </div>
+            <div class="est">
+                    <div class="estado1">
+                        <div class="estado e1"></div>
+                        <p>Activo</p>
+                    </div>                        
+                    <div class="estado1">
+                        <div class="estado e2"></div>
+                        <p>Pausado</p>
+                    </div>                        
+                    <div class="estado1">
+                        <div class="estado e3"></div>
+                        <p>Finalizado</p>
+                    </div>
+            </div>
+            </div>
+            `);
+            
+        }
+    }
+
     function seleccionUsuarioTarea(btn){
         $('#cbxUserTarea').html($(btn).text());
         sessionStorage.setItem('UsuarioTarea',$(btn).attr('id'));
@@ -295,6 +389,9 @@ $(document).ready(function () {
         $('#cbxProyectoTarea').html($(btn).text());
         console.log(btn);
         sessionStorage.setItem('ProyectoTarea',$(btn).attr('id'));
+    }
+    function seleccionEstado(btn){
+        $('#dropMenuEstados').html($(btn).text());
     }
 
     function actualizarTablaRoles(){

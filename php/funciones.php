@@ -164,6 +164,31 @@ include 'conexion.php';
                     echo 0;
                 } 
             break;
+            case 15:
+                $sql = "call Seleccion_Estado_Tarea()";
+                $result = $conn->query($sql);            
+                if ($result->num_rows>0) {                
+                    while($lector = $result->fetch_assoc()) {
+                        $jsonArray[] = $lector; 
+                    }  
+                    echo json_encode($jsonArray);
+                } else {
+                    echo 0;
+                }
+            break;
+            case 16:
+                $idUser = $_POST['idUser'];
+                $sql = "call Tareas_Usuarios('$idUser')";
+                $result = $conn->query($sql);            
+                if ($result->num_rows>0) {                
+                    while($lector = $result->fetch_assoc()) {
+                        $jsonArray[] = $lector; 
+                    }  
+                    echo json_encode($jsonArray);
+                } else {
+                    echo 0;
+                }
+            break;
         }
     }
 

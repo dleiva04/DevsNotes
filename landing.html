@@ -60,14 +60,9 @@
             <p class="display-2">¡Bienvenido!</p>
         </div>
         <div class="infoSide infoUsuarios" id="usuarios">
-            <div class="titulos">
+            <div class="titulos" id="titulosNotificacion1">
                 <p>Usuarios</p>
-                <div style ="font-size: 18px" class="alert alert-success" role="alert">
-                This is a success alert—check it out!                  
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+                <!--Notificacion-->
             </div>
             <div class="opcionesUsuarios">
                     <div class="cuadroRegistro">
@@ -80,7 +75,6 @@
                             <button class="btn btn-primary" id="btnRegistrar">Registrar</button>
                         </div>
                     </div>
-
                 <div class="cuadroRoles">
                     <div class="ventanaRoles" id="windowRoles">
                         <p class="users">Roles</p>
@@ -91,11 +85,12 @@
             </div>
         </div>
         <div class="infoSide proyectosInfo" id="proyectos">
-            <div class="titulos">
+            <div class="titulos" id="titulosNotificacion2">
                 <p>Proyectos</p>
+                <!--Notificacion-->
             </div>
             <div class="opcionesProyectos"> 
-                <div class="proyectosTareas recuadro" >
+                <div class="proyectosTareas recuadro" id="crearProyecto">
                     <div class="cuadroRegistro">
                         <div class="form">
                             <p class="users">Crear Proyecto</p>
@@ -104,31 +99,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="crearProyectosTareas recuadro">
-                    <div class="cuadroRegistro">
+                <div class="crearProyectosTareas recuadro" id="crearTarea">
+                    <div class="cuadroRegistro">                        
                         <div class="form">
                             <p class="users">Crear Tarea</p>
                             <input type="text" class="txtR" id="nombreTarea"  placeholder="Nombre Tarea">
-                            <div class="btn-group" >
-                                    <button type="button" class="btn btn-info dropdown-toggle"  id="cbxProyectoTarea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Proyecto
-                                    </button>
-                                    <div class="dropdown-menu menuItems" id="dropMenuProyecto">                            
-                                    </div>
+                            <div class="botones">
+                                <div class="btn-group" >
+                                        <button type="button" class="btn btn-primary dropdown-toggle btnDrop"  id="cbxProyectoTarea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Proyecto
+                                        </button>
+                                        <div class="dropdown-menu menuItems" id="dropMenuProyecto">                            
+                                        </div>
+                                </div>
+                                <div class="btn-group">
+                                        <button type="button" class="btn btn-primary dropdown-toggle btnDrop"  id="cbxUserTarea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Usuario Encargado
+                                        </button>
+                                        <div class="dropdown-menu menuItems" id="dropMenuUsuario">                            
+                                        </div>
+                                </div>
+                                <button class="btn btn-primary" id="btnCrearTarea">Crear Tarea</button>
                             </div>
-                            <div class="btn-group">
-                                    <button type="button" class="btn btn-info dropdown-toggle"  id="cbxUserTarea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Usuario Encargado
-                                    </button>
-                                    <div class="dropdown-menu menuItems" id="dropMenuUsuario">                            
-                                    </div>
-                            </div>
-                            <button class="btn btn-primary" id="btnCrearTarea">Crear Tarea</button>
                         </div>
                 </div>
                 </div>
-                <div class="verProyectosTareas recuadro">
-                    
+                <div class="verProyectosTareas recuadro" id="cuadroTareas">
+                    <div class="estadoTarea">                        
+                    </div>
+                                        
                 </div>
             </div>
             
@@ -139,14 +138,14 @@
                 <div class="chat">
                     <!-- Example single danger button -->
                     <div class="btn-group" id="grupoBtn">
-                        <button type="button" class="btn btn-info dropdown-toggle"  id="cbxProyectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-primary dropdown-toggle btnDrop"  id="cbxProyectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Observacion de Tareas
                         </button>
                         <div class="dropdown-menu menuItems" id="dropMenu">                            
                         </div>
                     </div>
                     <div class="btn-group" id="grupoBtn">
-                        <button type="button" class="btn btn-info dropdown-toggle"  id="cbxProyectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button type="button" class="btn btn-primary dropdown-toggle btnDrop"  id="cbxProyectos" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Proyectos
                         </button>
                         <div class="dropdown-menu menuItems" id="dropMenu">                            
@@ -163,30 +162,25 @@
             </div>
         </div>
         
-        <!-- Modal 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Observaciones
-        </button>
-
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Insertar observaciones</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        <div class="modal fade" id="obs" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Insertar observaciones</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                            <textarea class="form-control" rows="5" id="comment" placeholder="Observaciones"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Finalizar</button>
+                    <button type="button" class="btn btn-primary">Guardar cambios</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Observaciones"></textarea>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Finalizar</button>
-                <button type="button" class="btn btn-primary">Guardar cambios</button>
-                </div>
-            </div>
-            </div>
-        </div>-->
+        </div>
         
         <!--=====================================-->
         

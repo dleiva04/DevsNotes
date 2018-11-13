@@ -46,7 +46,7 @@ $(document).ready(function () {
     $('#btnLogout').click(function (e) {  
         e.preventDefault();    
         sessionStorage.clear();
-        window.location.assign('/DevsNotes/login.html');
+        window.location.assign('/DevsNotes/index.html');
     });
 
 });
