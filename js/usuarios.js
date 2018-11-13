@@ -132,15 +132,17 @@ $(document).ready(function () {
             "accion":16,
             "idUser":sessionStorage.getItem('idUser')
         };
+        setInterval(() => {
         $.ajax({
             type: "post",
             url: "php/funciones.php",
             data: datos,
             success: function (r) {
-                let arr = JSON.parse(r);
+                let arr = JSON.parse(r);                
                 cargarTareas(arr);
             }
         });
+        }, 1000);
     });
 
     function limpiarFormRegistro() {  
@@ -182,7 +184,7 @@ $(document).ready(function () {
    $('.foro').toggleClass('des');
     });
 
-    $('#cbxProyectos').click(function (e) { 
+    $('#cbxProyectosForo').click(function (e) { 
         e.preventDefault();
         console.log("click");
         $.ajax({
@@ -194,9 +196,9 @@ $(document).ready(function () {
                     alert("No hay proyectos");
                 } else{
                     let info = JSON.parse(r);
-                    $('#dropMenu').empty();     
+                    $('#dropMenuForo').empty();     
                     for (const i of info) {
-                        $('#dropMenu').append(`
+                        $('#dropMenuForo').append(`
                             <div class="dropdown-item itemChat" onclick="seleccionProyecto(this)" id="${i.Id_Proyecto}">${i.Nombre_Proyecto}</div>
                         `);
                     }
@@ -340,12 +342,13 @@ $(document).ready(function () {
 
 });    
     function cargarTareas(arr){
+        $('#cuadroTareas').empty();
         for (const i of arr) {
             $('#cuadroTareas').append(`
             <div class="tarea">
             <div class="tit">
-                <p id="id">Nombre Tarea</p>
-                <p id="id">Nombre Proyecto</p>
+                <p id="id">${i.Descripcion}</p>
+                <p id="id">Proyecto#${i.Id_Proyecto}</p>
             </div>
             <div class="cuerpoTarea">
                 <button class="btn btn-primary btnDrop" data-toggle="modal" data-target="#obs">Observacion</button>
