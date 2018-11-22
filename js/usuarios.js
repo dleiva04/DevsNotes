@@ -339,6 +339,10 @@ $(document).ready(function () {
             }
         });
     });
+    $('#grupoBtnP').click(function (e) { 
+        e.preventDefault();
+        console.log("click");
+    });
 
 });    
     function cargarTareas(arr){
@@ -485,7 +489,7 @@ $(document).ready(function () {
                         $('.cajaRoles').append(`
                         </div>
                         </div>`);
-                    }             
+                    }        
             }
         });
     }
@@ -516,6 +520,10 @@ $(document).ready(function () {
                 actualizarTablaRoles();
             }
         });
+    }
+
+    function proyectosForo(e) {
+
     }
 
     function btnClick(btn){        
