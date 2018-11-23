@@ -815,25 +815,20 @@ body {
           flex-direction: column;
 }
 
-.cuerpo .foro .chat .mensajes .msjChat {
+.cuerpo .foro .chat .mensajes .mensaje {
   width: 95%;
-  border: 2px solid gray;
-  border-radius: 5px;
-  padding: 20px;
-  margin: 15px;
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid #13529b;
 }
 
-.cuerpo .foro .chat .mensajes .msjChat .emisor {
-  border-bottom: 1px solid black;
-  padding-bottom: 10px;
+.cuerpo .foro .chat .mensajes .mensaje .persona {
+  border-bottom: 1px solid #4684ca;
 }
 
-.cuerpo .foro .chat .mensajes .msjChat .emisor p {
-  margin: 0;
-}
-
-.cuerpo .foro .chat .mensajes .msjChat .mensaje {
-  padding-top: 10px;
+.cuerpo .foro .chat .mensajes .mensaje .text {
+  padding-top: 5px;
 }
 
 .cuerpo .foro .chat .mensajes::-webkit-scrollbar {

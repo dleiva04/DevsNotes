@@ -189,6 +189,19 @@ include 'conexion.php';
                     echo 0;
                 }
             break;
+            case 17:
+                $idProyecto = $_POST['idProyecto'];
+                $sql = "call Seleccion_Mensajes('$idProyecto')";
+                $result = $conn->query($sql);            
+                if ($result->num_rows>0) {                
+                    while($lector = $result->fetch_assoc()) {
+                        $jsonArray[] = $lector; 
+                    }  
+                    echo json_encode($jsonArray);
+                } else {
+                    echo 0;
+                }
+            break;
         }
     }
 

@@ -186,25 +186,46 @@ $(document).ready(function () {
 
     $('#cbxProyectosForo').click(function (e) { 
         e.preventDefault();
-        console.log("click");
-        $.ajax({
-            type: "post",
-            url: "php/funciones.php",
-            data: {"accion":7,"idUser":sessionStorage.getItem('idUser')},
-            success: function (r) {    
-                if(r == 0){
-                    alert("No hay proyectos");
-                } else{
-                    let info = JSON.parse(r);
-                    $('#dropMenuForo').empty();     
-                    for (const i of info) {
-                        $('#dropMenuForo').append(`
-                            <div class="dropdown-item itemChat" onclick="seleccionProyecto(this)" id="${i.Id_Proyecto}">${i.Nombre_Proyecto}</div>
-                        `);
-                    }
-                }          
-            }
-        });        
+        //console.log("click");
+        if(rol2 != null){
+            $.ajax({
+                type: "post",
+                url: "php/funciones.php",
+                data: {"accion":13},
+                success: function (r) {    
+                    if(r == 0){
+                        alert("No hay proyectos");
+                    } else{
+                        let info = JSON.parse(r);
+                        $('#dropMenuForo').empty();     
+                        for (const i of info) {
+                            $('#dropMenuForo').append(`
+                            <div class="dropdown-item itemChat" onclick="seleccionProyectoForo(this)" id="${i.Id_Proyecto}">${i.Nombre_Proyecto}</div>
+                            `);
+                        }
+                    }          
+                }
+            });    
+        }else{
+            $.ajax({
+                type: "post",
+                url: "php/funciones.php",
+                data: {"accion":7,"idUser":sessionStorage.getItem('idUser')},
+                success: function (r) {    
+                    if(r == 0){
+                        alert("No hay proyectos");
+                    } else{
+                        let info = JSON.parse(r);
+                        $('#dropMenuForo').empty();     
+                        for (const i of info) {
+                            $('#dropMenuForo').append(`
+                                <div class="dropdown-item itemChat" onclick="seleccionProyectoForo(this)" id="${i.Id_Proyecto}">${i.Nombre_Proyecto}</div>
+                            `);
+                        }
+                    }          
+                }
+            }); 
+        }      
     });
     let click = false;
     $('#cbxUserTarea').click(function (e) { 
@@ -267,7 +288,7 @@ $(document).ready(function () {
 
         let datos = {
             "accion":8,
-            "idProyecto":sessionStorage.getItem("idProyectoSeleccionado"),
+            "idProyecto":sessionStorage.getItem("idProyectoSeleccionadoForo"),
             "idUser":sessionStorage.getItem("idUser"),
             "desConsulta":$('#msj').val()
         };
@@ -277,11 +298,11 @@ $(document).ready(function () {
             data: datos,
             success: function (r) {
                 if(r == 1){
-                    alert("Insertado");
                     $('#msj').val('');
                 }
             }
         });
+        
     });
 
     $('#btnCrearProyecto').click(function (e) { 
@@ -510,7 +531,38 @@ $(document).ready(function () {
         }        
     }
     
-    function eliminar(btn){
+    function seleccionProyectoForo(btn){
+        if(btn.className.includes("itemChat")){
+            //console.log(btn);
+            $('#cbxProyectosForo').html($(btn).text());
+            sessionStorage.setItem('idProyectoSeleccionadoForo',btn.id);
+            $.ajax({
+                type: "post",
+                url: "php/funciones.php",
+                data: {"accion":17,"idProyecto":sessionStorage.getItem('idProyectoSeleccionadoForo')},
+                success: function (r) {
+                    $('#mensajes').empty();  
+                    let msj = JSON.parse(r); 
+                    for (const i of msj) {                          
+                        $('#mensajes').append(`
+                        <div class="mensaje">
+                            <div class="persona">
+                                <h4>@${i.Nombre_Usuario}</h4>
+                            </div>
+                            <div class="text">
+                                <p>${i.Desc_Consulta}</p>
+                            </div>
+                        </div>
+                        `);
+                    }              
+                }
+            });
+        }
+    }
+    function actualizarForo(){
+               
+    }
+    function eliminar(btn){ 
         $.ajax({
             type: "post",
             url: "php/funciones.php",

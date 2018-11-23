@@ -514,21 +514,17 @@ $azulHover :rgb(70, 132, 202);
                     display: flex;
                     align-items: center;
                     flex-direction: column;
-                    .msjChat{
+                    .mensaje{
                         width: 95%;
-                        border: 2px solid gray;
-                        border-radius: 5px;
-                        padding: 20px;
-                        margin: 15px;
-                        .emisor{
-                            border-bottom: 1px solid black;
-                            padding-bottom: 10px;
-                            p{
-                                margin: 0;
-                            }
+                        margin: 5px;
+                        border-radius: 10px;
+                        padding: 10px;
+                        border: 2px solid $azul;
+                        .persona{
+                            border-bottom: 1px solid $azulHover;
                         }
-                        .mensaje{
-                            padding-top: 10px;
+                        .text{
+                            padding-top: 5px;
                         }
                     }
                 }
