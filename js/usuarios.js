@@ -161,6 +161,7 @@ $(document).ready(function () {
         e.preventDefault();
         actualizarTablaRoles();
     });
+
     /*
     $('.rolU').hover(function () {
             // over
@@ -304,7 +305,17 @@ $(document).ready(function () {
         });
         
     });
-
+    $('#btnGuardarCambios').click(function (e) { 
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "php/funciones.php",
+            data: {"accion":19,"observacion":$('#comment').val(),id},
+            success: function (r) {
+                
+            }
+        });
+    });
     $('#btnCrearProyecto').click(function (e) { 
         let datos = {
             "accion":11,
@@ -369,36 +380,38 @@ $(document).ready(function () {
     function cargarTareas(arr){
         $('#cuadroTareas').empty();
         for (const i of arr) {
+            let estado;
+            let color;
+            if(i.Id_Estado_Tarea == 1){
+                estado = "Activo";
+                color = 'darkorange';
+            }else if(i.Id_Estado_Tarea == 2){
+                estado = "Pausado";
+                color = "darkseagreen";
+            }else{
+                estado = "Finalizado";
+                color = "grey";
+            }
             $('#cuadroTareas').append(`
-            <div class="tarea">
-            <div class="tit">
+            <div class="tarea" style = "border: 2px solid ${color};" id="${i.Id_Tarea}">
+            <div class="tit" style = "border-bottom: 2px solid ${color};">
                 <p id="id">${i.Descripcion}</p>
                 <p id="id">Proyecto#${i.Id_Proyecto}</p>
             </div>
             <div class="cuerpoTarea">
-                <button class="btn btn-primary btnDrop" data-toggle="modal" data-target="#obs">Observacion</button>
-                <div class="btn-group" id="grupoBtn">
-                        <button type="button" class="btn btn-primary dropdown-toggle btnDrop"  id="cbxEstadosTarea" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Estado Tarea
-                        </button>
-                        <div class="dropdown-menu menuItems" id="dropMenuEstados"> 
-                            <div class="dropdown-item itemChat" onclick="seleccionEstado(this)" id="1">Activo</div>                       
-                            <div class="dropdown-item itemChat" onclick="seleccionEstado(this)" id="2">Pausado</div>                       
-                            <div class="dropdown-item itemChat" onclick="seleccionEstado(this)" id="3">Finalizado</div>                       
-                        </div>
-                </div>
-                <button class="btn btn-primary btnDrop">Finalizar Tarea</button>
+                <button class="btn btn-primary btnDrop" data-toggle="modal" data-target="#obs" id="btnObservacion">Observacion</button>
+                <button class="btn btn-primary btnDrop" id="btnFinalizar">Finalizar Tarea</button>
             </div>
             <div class="est">
-                    <div class="estado1">
+                    <div class="estado1" onclick="cambiar(${i.Id_Tarea},1)">
                         <div class="estado e1"></div>
                         <p>Activo</p>
                     </div>                        
-                    <div class="estado1">
+                    <div class="estado1" onclick="cambiar(${i.Id_Tarea},2)">
                         <div class="estado e2"></div>
                         <p>Pausado</p>
                     </div>                        
-                    <div class="estado1">
+                    <div class="estado1" style="cursor: initial;">
                         <div class="estado e3"></div>
                         <p>Finalizado</p>
                     </div>
@@ -407,8 +420,12 @@ $(document).ready(function () {
             `);
             
         }
-    }
-
+    }    
+    $('#btnFinalizar').click(function (e) { 
+        e.preventDefault();
+        console.log("clickfin");
+        //cambiar();
+    });
     function seleccionUsuarioTarea(btn){
         $('#cbxUserTarea').html($(btn).text());
         sessionStorage.setItem('UsuarioTarea',$(btn).attr('id'));
@@ -420,8 +437,21 @@ $(document).ready(function () {
     }
     function seleccionEstado(btn){
         $('#dropMenuEstados').html($(btn).text());
+        console.log("click en estados");
     }
 
+    function cambiar(idTarea,idEstado) { 
+        $.ajax({
+            type: "post",
+            url: "php/funciones.php",            
+            data: {"accion":18, "estado":idEstado,"idTarea":idTarea},
+            success: function (r) {           
+                if(r==0){
+                    alert("error");
+                }
+            }
+        });
+    }
     function actualizarTablaRoles(){
         $.ajax({
             type: "post",
@@ -536,31 +566,10 @@ $(document).ready(function () {
             //console.log(btn);
             $('#cbxProyectosForo').html($(btn).text());
             sessionStorage.setItem('idProyectoSeleccionadoForo',btn.id);
-            $.ajax({
-                type: "post",
-                url: "php/funciones.php",
-                data: {"accion":17,"idProyecto":sessionStorage.getItem('idProyectoSeleccionadoForo')},
-                success: function (r) {
-                    $('#mensajes').empty();  
-                    let msj = JSON.parse(r); 
-                    for (const i of msj) {                          
-                        $('#mensajes').append(`
-                        <div class="mensaje">
-                            <div class="persona">
-                                <h4>@${i.Nombre_Usuario}</h4>
-                            </div>
-                            <div class="text">
-                                <p>${i.Desc_Consulta}</p>
-                            </div>
-                        </div>
-                        `);
-                    }              
-                }
-            });
+            setInterval(()=>{
+            actualizarForo();
+            },1000);
         }
-    }
-    function actualizarForo(){
-               
     }
     function eliminar(btn){ 
         $.ajax({
@@ -573,7 +582,30 @@ $(document).ready(function () {
             }
         });
     }
-
+    function actualizarForo(){
+        $.ajax({
+            type: "post",
+            url: "php/funciones.php",
+            data: {"accion":17,"idProyecto":sessionStorage.getItem('idProyectoSeleccionadoForo')},
+            success: function (r) {
+                $('#mensajes').empty();  
+                let msj = JSON.parse(r); 
+                console.log(msj);
+                for (const i of msj) {                          
+                    $('#mensajes').append(`
+                    <div class="mensaje">
+                        <div class="persona">
+                            <h4>@${i.Nombre_Usuario}</h4>
+                        </div>
+                        <div class="text">
+                            <p>${i.Desc_Consulta}</p>
+                        </div>
+                    </div>
+                    `);
+                }              
+            }
+        });
+    }
     function proyectosForo(e) {
 
     }

@@ -649,7 +649,6 @@ body {
 
 .cuerpo .proyectosInfo .opcionesProyectos .recuadro .tarea {
   margin: 20px;
-  border: 2px solid darkkhaki;
   padding: 15px;
   border-radius: 10px;
   display: -webkit-box;
@@ -687,7 +686,6 @@ body {
           align-items: center;
   margin-bottom: 10px;
   width: 100%;
-  border-bottom: 2px solid darkkhaki;
 }
 
 .cuerpo .proyectosInfo .opcionesProyectos .recuadro .tarea .cuerpoTarea {
@@ -946,10 +944,15 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   padding: 0 10px;
+  cursor: pointer;
 }
 
 .cuerpo .estado1 .estado {
   margin-right: 5px;
+}
+
+.cuerpo .estado1:hover {
+  color: #13529b;
 }
 
 .cuerpo .estado {

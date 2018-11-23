@@ -202,6 +202,16 @@ include 'conexion.php';
                     echo 0;
                 }
             break;
+            case 18:
+                $idTarea = $_POST['idTarea'];
+                $idEstadoTarea = $_POST['estado'];
+                $sql = "call updateEstadosTarea('$idTarea','$idEstadoTarea')";
+                if ($conn->query($sql) === TRUE) {
+                    echo 1;
+                }else{
+                    echo 0;
+                }
+            break;
         }
     }
 

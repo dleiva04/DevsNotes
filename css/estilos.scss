@@ -413,7 +413,7 @@ $azulHover :rgb(70, 132, 202);
                 }
                 .tarea{
                     margin: 20px;
-                    border: 2px solid darkkhaki;
+                   
                     padding: 15px;
                     border-radius: 10px;
                     p{
@@ -427,8 +427,7 @@ $azulHover :rgb(70, 132, 202);
                         justify-content: space-between;
                         align-items: center;
                         margin-bottom: 10px;
-                        width: 100%;
-                        border-bottom: 2px solid darkkhaki;
+                        width: 100%;                        
                     }
                     .cuerpoTarea{                        
                         display: flex;
@@ -606,9 +605,14 @@ $azulHover :rgb(70, 132, 202);
             align-items: center;
             flex-direction: row; 
             padding: 0 10px;  
+            cursor: pointer;
             .estado{
                 margin-right: 5px;
-            }                
+            }      
+                      
+        }
+        .estado1:hover{
+            color: $azul
         }
         .estado{
             height: 1em;
